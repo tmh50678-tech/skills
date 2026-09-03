@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خيّاط البيت — تفصيل ثوب رجالي يجيك لبيتك</title>
+<meta name="description" content="خيّاط البيت: تفصيل ثوب رجالي بحرفة تراثية أصيلة، مع خدمة أخذ المقاس وتسليم الطلب في بيتك.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  /* ============ Tokens: earthy / ترابي ============ */
+  :root{
+    --color-bg:#ede2d1;
+    --color-surface:#f9f1e5;
+    --color-surface-raised:#fffbf3;
+    --color-text:#2c2016;
+    --color-text-soft:#6d5a45;
+    --color-clay:#a3592c;
+    --color-clay-strong:#823f1c;
+    --color-umber:#5a4632;
+    --color-umber-strong:#3c2f21;
+    --color-ochre:#8f6d38;
+    --color-border:rgba(44,32,22,0.14);
+    --color-border-strong:rgba(44,32,22,0.26);
+    --color-band-bg:#3a2a1c;
+    --color-band-text:#f3e7d3;
+    --color-band-accent:#d3a15c;
+    --shadow-soft:0 24px 60px -32px rgba(44,32,22,0.45);
+    --shadow-lift:0 30px 70px -28px rgba(44,32,22,0.5);
+
+    --font-display:'Aref Ruqaa', 'Traditional Arabic', serif;
+    --font-body:'Tajawal', 'Segoe UI', sans-serif;
+
+    --fs-eyebrow: 0.82rem;
+    --fs-h1: clamp(2.6rem, 6vw, 4.6rem);
+    --fs-h2: clamp(1.9rem, 3.6vw, 2.9rem);
+    --fs-h3: clamp(1.25rem, 2vw, 1.55rem);
+    --fs-lead: clamp(1.05rem, 1.6vw, 1.25rem);
+    --fs-body: 1rem;
+
+    --container: 1180px;
+    --radius: 4px;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --color-bg:#171009;
+      --color-surface:#1d150c;
+      --color-surface-raised:#241a10;
+      --color-text:#f1e4d0;
+      --color-text-soft:#c9ab86;
+      --color-clay:#d6863f;
+      --color-clay-strong:#e79c55;
+      --color-umber:#b79b7c;
+      --color-umber-strong:#dcc5a8;
+      --color-ochre:#c9a468;
+      --color-border:rgba(241,228,208,0.14);
+      --color-border-strong:rgba(241,228,208,0.26);
+      --color-band-bg:#2a1e14;
+      --color-band-text:#f3e7d3;
+      --color-band-accent:#e0b06c;
+      --shadow-soft:0 24px 60px -32px rgba(0,0,0,0.7);
+      --shadow-lift:0 30px 70px -28px rgba(0,0,0,0.75);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --color-bg:#171009;
+    --color-surface:#1d150c;
+    --color-surface-raised:#241a10;
+    --color-text:#f1e4d0;
+    --color-text-soft:#c9ab86;
+    --color-clay:#d6863f;
+    --color-clay-strong:#e79c55;
+    --color-umber:#b79b7c;
+    --color-umber-strong:#dcc5a8;
+    --color-ochre:#c9a468;
+    --color-border:rgba(241,228,208,0.14);
+    --color-border-strong:rgba(241,228,208,0.26);
+    --color-band-bg:#2a1e14;
+    --color-band-text:#f3e7d3;
+    --color-band-accent:#e0b06c;
+    --shadow-soft:0 24px 60px -32px rgba(0,0,0,0.7);
+    --shadow-lift:0 30px 70px -28px rgba(0,0,0,0.75);
+    color-scheme: dark;
+  }
+
+  /* ============ Reset ============ */
+  *,*::before,*::after{box-sizing:border-box;}
+  [hidden]{display:none !important;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--color-bg);
+    color:var(--color-text);
+    font-family:var(--font-body);
+    font-size:var(--fs-body);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;cursor:pointer;}
+  h1,h2,h3,p{margin:0;}
+  h1,h2,h3{font-family:var(--font-display);text-wrap:balance;font-weight:700;}
+  ::selection{background:var(--color-clay);color:#fff8ee;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
+  }
+
+  .wrap{max-width:var(--container);margin-inline:auto;padding-inline:24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:var(--fs-eyebrow);letter-spacing:0.06em;color:var(--color-clay-strong);
+    font-weight:700;
+  }
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--color-clay);display:inline-block;}
+  :root:not([data-theme="light"]) .eyebrow,[data-theme="dark"] .eyebrow{color:var(--color-clay);}
+
+  /* ============ Scroll progress ============ */
+  #scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--color-clay);z-index:200;}
+
+  /* ============ Sadu-inspired band (decorative, pure CSS) ============ */
+  .sadu-band{
+    height:22px;width:100%;
+    background:
+      linear-gradient(135deg, var(--color-clay) 25%, transparent 25.5%) 0 0/22px 22px,
+      linear-gradient(45deg, var(--color-umber-strong) 25%, transparent 25.5%) 0 0/22px 22px,
+      var(--color-ochre);
+    background-repeat:repeat;
+    opacity:0.9;
+  }
+
+  /* Crenellation divider (شرافات الطين) */
+  .parapet{
+    height:16px;width:100%;
+    background-image:repeating-linear-gradient(to left, currentColor 0 12px, transparent 12px 24px);
+    color:var(--color-clay);
+  }
+
+  /* ============ Top utility bar ============ */
+  .utility-bar{
+    background:var(--color-band-bg);
+    color:var(--color-band-text);
+    font-size:0.82rem;
+  }
+  .utility-bar .wrap{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-block:8px;flex-wrap:wrap;gap:8px;
+  }
+  .utility-bar span{opacity:0.92;}
+  .utility-bar strong{color:var(--color-band-accent);font-weight:700;}
+
+  /* ============ Header ============ */
+  header.site{
+    position:sticky;top:0;z-index:40;
+    background:color-mix(in srgb, var(--color-bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--color-border);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding-block:14px;gap:20px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{width:42px;height:42px;flex:none;}
+  .brand-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:0.01em;}
+  .brand-tag{display:block;font-family:var(--font-body);font-size:0.68rem;color:var(--color-text-soft);letter-spacing:0.05em;}
+  .nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0;}
+  .nav-links a{font-size:0.95rem;font-weight:500;position:relative;padding-block:4px;}
+  .nav-links a::after{content:"";position:absolute;inset-inline:0;bottom:0;height:2px;background:var(--color-clay);transform:scaleX(0);transition:transform .3s ease;}
+  .nav-links a:hover::after{transform:scaleX(1);}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:12px 22px;border-radius:var(--radius);
+    font-weight:700;font-size:0.92rem;border:1px solid transparent;
+    transition:transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
+    white-space:nowrap;
+  }
+  .btn:focus-visible{outline:2px solid var(--color-ochre);outline-offset:3px;}
+  .btn svg{width:18px;height:18px;flex:none;}
+  .btn-primary{background:var(--color-clay);color:#fff8ee;box-shadow:var(--shadow-soft);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift);background:var(--color-clay-strong);}
+  .btn-ghost{background:transparent;color:var(--color-text);border-color:var(--color-border-strong);}
+  .btn-ghost:hover{border-color:var(--color-clay);color:var(--color-clay-strong);}
+
+  .nav-cta{display:flex;align-items:center;gap:10px;}
+  .icon-btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:40px;height:40px;border-radius:var(--radius);
+    background:transparent;border:1px solid var(--color-border-strong);color:var(--color-text-soft);
+    transition:border-color .25s ease, color .25s ease;
+  }
+  .icon-btn:hover{border-color:var(--color-clay);color:var(--color-clay-strong);}
+  .icon-btn svg{width:19px;height:19px;}
+  .theme-toggle .sun{display:none;}
+  :root[data-theme="dark"] .theme-toggle .sun{display:block;}
+  :root[data-theme="dark"] .theme-toggle .moon{display:none;}
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]) .theme-toggle .sun{display:block;}
+    :root:not([data-theme="light"]) .theme-toggle .moon{display:none;}
+  }
+  .menu-toggle{display:none;}
+  .menu-toggle svg{width:20px;height:20px;}
+
+  /* ============ Hero ============ */
+  .hero{position:relative;overflow:hidden;padding-block:64px 40px;}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+  .hero-copy h1{font-size:var(--fs-h1);line-height:1.12;margin-block:18px 20px;}
+  .hero-copy h1 .cut{display:block;overflow:hidden;}
+  .hero-copy h1 .cut span{display:block;transform:translateY(110%);}
+  .hero-copy h1 em{font-style:normal;color:var(--color-clay);}
+  .hero-lead{font-size:var(--fs-lead);color:var(--color-text-soft);max-width:46ch;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:30px;}
+
+  .stat-row{display:flex;gap:34px;margin-top:44px;flex-wrap:wrap;}
+  .stat b{
+    display:block;font-family:var(--font-display);font-size:2.1rem;color:var(--color-clay-strong);
+    font-variant-numeric:tabular-nums;
+  }
+  :root:not([data-theme="light"]) .stat b,[data-theme="dark"] .stat b{color:var(--color-clay);}
+  .stat span{font-size:0.82rem;color:var(--color-text-soft);}
+
+  .hero-visual{position:relative;aspect-ratio:1/1.05;}
+  .hero-visual svg{width:100%;height:100%;}
+  .hero-visual .ring{transform-origin:50% 50%;}
+
+  /* ============ Marquee ============ */
+  .marquee-wrap{
+    background:var(--color-band-bg);color:var(--color-band-text);
+    overflow:hidden;padding-block:16px;
+  }
+  .marquee-track{display:flex;gap:0;width:max-content;animation:marquee 32s linear infinite;}
+  .marquee-track span{
+    display:flex;align-items:center;gap:14px;
+    padding-inline:14px;font-family:var(--font-display);font-size:1.25rem;white-space:nowrap;
+  }
+  .marquee-track span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--color-band-accent);display:inline-block;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+  /* ============ Section shell ============ */
+  section{padding-block:96px;position:relative;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head h2{margin-top:14px;}
+  .section-head p{margin-top:16px;color:var(--color-text-soft);font-size:var(--fs-lead);}
+  .section-head.center{margin-inline:auto;text-align:center;}
+  .section-head.center .eyebrow{justify-content:center;}
+
+  /* ============ Features ============ */
+  .features{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-border);border:1px solid var(--color-border);}
+  .feature{background:var(--color-surface);padding:34px 28px;}
+  .feature .icon{width:44px;height:44px;color:var(--color-clay-strong);margin-bottom:22px;}
+  :root:not([data-theme="light"]) .feature .icon,[data-theme="dark"] .feature .icon{color:var(--color-clay);}
+  .feature h3{font-size:var(--fs-h3);margin-bottom:10px;}
+  .feature p{color:var(--color-text-soft);font-size:0.95rem;}
+
+  /* ============ Services ============ */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .service-card{
+    background:var(--color-surface-raised);
+    border:1px solid var(--color-border);
+    padding:30px 26px 26px;
+    position:relative;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  .service-card::before{
+    content:"";position:absolute;inset-block-start:0;inset-inline-start:0;width:100%;height:3px;
+    background:linear-gradient(to left, var(--color-clay), var(--color-ochre));
+    transform:scaleX(0);transform-origin:right;transition:transform .4s ease;
+  }
+  .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift);border-color:var(--color-border-strong);}
+  .service-card:hover::before{transform:scaleX(1);}
+  .service-card .num{font-family:var(--font-display);color:var(--color-border-strong);font-size:2.4rem;position:absolute;left:22px;top:14px;}
+  .service-card h3{font-size:var(--fs-h3);margin-block:6px 10px;position:relative;z-index:1;}
+  .service-card p{color:var(--color-text-soft);font-size:0.94rem;margin-bottom:18px;}
+  .service-price{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--color-border-strong);padding-top:16px;}
+  .service-price b{font-family:var(--font-display);color:var(--color-umber-strong);font-size:1.05rem;}
+  :root:not([data-theme="light"]) .service-price b,[data-theme="dark"] .service-price b{color:var(--color-ochre);}
+  .service-price a{font-size:0.85rem;font-weight:700;color:var(--color-clay-strong);}
+
+  /* ============ Process ============ */
+  .process-line-wrap{position:relative;padding-top:10px;}
+  .process-line{position:absolute;top:29px;inset-inline:0;height:2px;background:var(--color-border-strong);}
+  .process-line i{position:absolute;inset-inline-start:0;top:0;height:100%;width:0%;background:var(--color-clay);display:block;}
+  .process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;position:relative;}
+  .process-step .dot{
+    width:60px;height:60px;border-radius:50%;background:var(--color-surface-raised);
+    border:2px solid var(--color-clay);display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-size:1.4rem;color:var(--color-clay-strong);margin-bottom:22px;
+    position:relative;z-index:1;
+  }
+  :root:not([data-theme="light"]) .process-step .dot,[data-theme="dark"] .process-step .dot{color:var(--color-clay);}
+  .process-step h3{font-size:1.05rem;margin-bottom:8px;}
+  .process-step p{color:var(--color-text-soft);font-size:0.92rem;}
+
+  /* ============ Craft swatches ============ */
+  .craft-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .swatch{border:1px solid var(--color-border);background:var(--color-surface-raised);overflow:hidden;}
+  .swatch-art{height:150px;position:relative;}
+  .swatch-art.tayl{background-repeat:repeat;background-size:14px 14px;background-image:repeating-linear-gradient(90deg, var(--color-umber-strong) 0 2px, transparent 2px 14px), repeating-linear-gradient(0deg, var(--color-umber-strong) 0 2px, transparent 2px 14px); background-color:color-mix(in srgb, var(--color-umber-strong) 8%, var(--color-surface-raised));}
+  .swatch-art.qasab{background:repeating-linear-gradient(115deg, var(--color-ochre) 0 3px, transparent 3px 16px); background-color:color-mix(in srgb, var(--color-ochre) 14%, var(--color-surface-raised));}
+  .swatch-art.sadaf{background-image: radial-gradient(circle at 20% 30%, var(--color-surface) 0 6px, transparent 7px), radial-gradient(circle at 60% 65%, var(--color-surface) 0 6px, transparent 7px), radial-gradient(circle at 85% 20%, var(--color-surface) 0 6px, transparent 7px), radial-gradient(circle at 40% 85%, var(--color-surface) 0 6px, transparent 7px); background-color:color-mix(in srgb, var(--color-clay) 16%, var(--color-surface-raised));}
+  .swatch-art.harir{background:linear-gradient(120deg, color-mix(in srgb, var(--color-clay) 22%, var(--color-surface-raised)) 0%, var(--color-surface-raised) 35%, color-mix(in srgb, var(--color-ochre) 26%, var(--color-surface-raised)) 70%, var(--color-surface-raised) 100%);}
+  .swatch-label{padding:16px 18px;border-top:1px solid var(--color-border);}
+  .swatch-label b{display:block;font-family:var(--font-display);font-size:1.05rem;}
+  .swatch-label span{font-size:0.82rem;color:var(--color-text-soft);}
+
+  /* ============ Testimonials ============ */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .testi{
+    background:var(--color-surface-raised);border:1px solid var(--color-border);
+    padding:30px 26px;position:relative;
+  }
+  .testi svg{width:30px;height:30px;color:var(--color-border-strong);margin-bottom:16px;}
+  .testi p{font-size:1rem;margin-bottom:20px;}
+  .testi footer{display:flex;align-items:center;gap:12px;font-size:0.85rem;color:var(--color-text-soft);}
+  .testi footer b{color:var(--color-text);font-weight:700;}
+  .testi footer i{width:34px;height:34px;border-radius:50%;background:var(--color-band-bg);display:flex;align-items:center;justify-content:center;color:var(--color-band-text);font-family:var(--font-display);font-style:normal;}
+
+  /* ============ Booking ============ */
+  .booking{background:var(--color-band-bg);color:var(--color-band-text);}
+  .booking .eyebrow{color:var(--color-band-accent);}
+  .booking .eyebrow::before{background:var(--color-band-accent);}
+  .booking .section-head p{color:color-mix(in srgb, var(--color-band-text) 78%, transparent);}
+  .booking-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:60px;align-items:start;}
+  .booking-points{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:16px;}
+  .booking-points li{display:flex;gap:12px;align-items:flex-start;font-size:0.95rem;color:color-mix(in srgb, var(--color-band-text) 88%, transparent);}
+  .booking-points svg{width:20px;height:20px;flex:none;color:var(--color-band-accent);margin-top:2px;}
+  .booking-note{margin-top:34px;font-size:0.8rem;color:color-mix(in srgb, var(--color-band-text) 65%, transparent);border-top:1px solid color-mix(in srgb, var(--color-band-text) 18%, transparent);padding-top:18px;}
+
+  form.booking-form{
+    background:var(--color-surface-raised);color:var(--color-text);
+    padding:34px;border:1px solid color-mix(in srgb, var(--color-band-text) 18%, transparent);
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field.full{grid-column:1/-1;}
+  .field label{font-size:0.82rem;font-weight:700;color:var(--color-text-soft);}
+  .field input,.field select,.field textarea{
+    border:1px solid var(--color-border-strong);border-radius:var(--radius);padding:11px 13px;
+    background:var(--color-surface);color:var(--color-text);font-family:inherit;font-size:0.95rem;
+    transition:border-color .25s ease, box-shadow .25s ease;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--color-clay);box-shadow:0 0 0 3px color-mix(in srgb, var(--color-clay) 22%, transparent);
+  }
+  .field textarea{resize:vertical;min-height:88px;}
+  .booking-form button{width:100%;justify-content:center;margin-top:6px;font-size:1rem;padding-block:14px;}
+  .form-hint{font-size:0.76rem;color:var(--color-text-soft);margin-top:12px;text-align:center;}
+
+  /* ============ Footer ============ */
+  footer.site{background:var(--color-bg);padding-top:70px;}
+  .footer-grid{display:grid;grid-template-columns:1.3fr 0.8fr 0.8fr 1fr;gap:40px;padding-bottom:50px;border-bottom:1px solid var(--color-border);}
+  .footer-brand p{color:var(--color-text-soft);margin-top:14px;font-size:0.92rem;max-width:34ch;}
+  .footer-col h4{font-size:0.85rem;margin-bottom:18px;color:var(--color-text-soft);letter-spacing:0.04em;}
+  .footer-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:0.92rem;}
+  .footer-col a:hover{color:var(--color-clay-strong);}
+  .footer-col li.staff-link{padding-top:6px;}
+  .footer-col li.staff-link a{color:var(--color-text-soft);font-size:0.82rem;border-bottom:1px dotted var(--color-border-strong);}
+  .social-row{display:flex;gap:10px;margin-top:18px;}
+  .social-row a{width:36px;height:36px;border:1px solid var(--color-border-strong);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .25s ease, color .25s ease;}
+  .social-row a:hover{background:var(--color-clay);color:#fff8ee;border-color:var(--color-clay);}
+  .social-row svg{width:16px;height:16px;}
+  .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-block:24px;font-size:0.8rem;color:var(--color-text-soft);flex-wrap:wrap;gap:10px;}
+
+  [data-reveal]{will-change:transform,opacity;}
+
+  /* ============ Floating WhatsApp button ============ */
+  .fab-whatsapp{
+    position:fixed;bottom:24px;left:24px;z-index:60;
+    width:56px;height:56px;border-radius:50%;background:var(--color-clay);color:#fff8ee;
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lift);
+    transition:transform .25s ease, background-color .25s ease;
+  }
+  .fab-whatsapp:hover{transform:translateY(-3px) scale(1.04);background:var(--color-clay-strong);}
+  .fab-whatsapp svg{width:26px;height:26px;}
+
+  /* ============ Staff panel ============ */
+  .staff-trigger{font-size:0.8rem;}
+  #staffOverlay{
+    position:fixed;inset:0;z-index:100;background:var(--color-bg);
+    overflow-y:auto;display:none;
+  }
+  #staffOverlay.open{display:block;}
+  .staff-header{
+    position:sticky;top:0;z-index:5;background:var(--color-band-bg);color:var(--color-band-text);
+    padding-block:16px;
+  }
+  .staff-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .staff-header h2{font-size:1.15rem;color:var(--color-band-text);}
+  .staff-header-actions{display:flex;gap:10px;}
+  .staff-header-actions .btn-ghost{border-color:color-mix(in srgb, var(--color-band-text) 30%, transparent);color:var(--color-band-text);}
+  .staff-header-actions .btn-ghost:hover{border-color:var(--color-band-accent);color:var(--color-band-accent);}
+
+  .staff-lock{max-width:380px;margin:12vh auto;padding:40px 36px;background:var(--color-surface-raised);border:1px solid var(--color-border);text-align:center;}
+  .staff-lock .icon{width:40px;height:40px;color:var(--color-clay-strong);margin:0 auto 18px;}
+  .staff-lock h2{font-size:1.4rem;margin-bottom:8px;}
+  .staff-lock p{color:var(--color-text-soft);font-size:0.9rem;margin-bottom:22px;}
+  .staff-lock input{width:100%;text-align:center;letter-spacing:0.3em;font-size:1.2rem;margin-bottom:14px;padding:12px;border-radius:var(--radius);border:1px solid var(--color-border-strong);background:var(--color-surface);color:var(--color-text);}
+  .staff-lock .btn{width:100%;justify-content:center;}
+  .staff-lock .error{color:#a33;font-size:0.82rem;min-height:1.2em;margin-bottom:10px;}
+
+  .staff-dash{max-width:1180px;margin-inline:auto;padding:32px 24px 80px;}
+  .staff-notice{
+    display:flex;gap:10px;align-items:flex-start;background:var(--color-surface);
+    border:1px dashed var(--color-border-strong);padding:14px 16px;font-size:0.82rem;color:var(--color-text-soft);margin-bottom:26px;
+  }
+  .staff-notice svg{width:18px;height:18px;flex:none;color:var(--color-clay-strong);margin-top:1px;}
+
+  .staff-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px;}
+  .staff-search{display:flex;gap:10px;flex-wrap:wrap;flex:1;}
+  .staff-search input,.staff-search select{
+    border:1px solid var(--color-border-strong);border-radius:var(--radius);padding:10px 12px;
+    background:var(--color-surface-raised);color:var(--color-text);font-family:inherit;font-size:0.9rem;
+  }
+  .staff-search input{flex:1;min-width:180px;}
+
+  .staff-form{background:var(--color-surface-raised);border:1px solid var(--color-border);padding:28px;margin-bottom:30px;display:none;}
+  .staff-form.open{display:block;}
+  .staff-form h3{font-size:1.1rem;margin-bottom:4px;}
+  .staff-form .form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px;}
+  .form-section-title{
+    grid-column:1/-1;font-size:0.78rem;font-weight:700;color:var(--color-clay-strong);
+    letter-spacing:0.04em;margin-top:14px;padding-top:16px;border-top:1px dashed var(--color-border-strong);
+  }
+  .staff-form .form-grid > .form-section-title:first-child{border-top:none;margin-top:0;padding-top:0;}
+  .staff-form-actions{display:flex;gap:12px;margin-top:22px;justify-content:flex-end;flex-wrap:wrap;}
+  .staff-form-actions .btn-text{background:none;border:none;color:var(--color-text-soft);font-weight:600;font-size:0.9rem;padding:12px 6px;}
+  .staff-form-actions .btn-text:hover{color:var(--color-clay-strong);}
+
+  .staff-table-wrap{overflow-x:auto;border:1px solid var(--color-border);background:var(--color-surface-raised);}
+  table.staff-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
+  .staff-table th,.staff-table td{padding:13px 14px;text-align:right;border-bottom:1px solid var(--color-border);white-space:nowrap;}
+  .staff-table thead th{background:var(--color-surface);font-size:0.76rem;color:var(--color-text-soft);font-weight:700;}
+  .staff-table tbody tr:last-child td{border-bottom:none;}
+  .staff-table tbody tr:hover{background:color-mix(in srgb, var(--color-clay) 5%, transparent);}
+  .badge{display:inline-flex;padding:4px 11px;border-radius:100px;font-size:0.74rem;font-weight:700;white-space:nowrap;}
+  .badge-measuring{background:#e7e0d3;color:#5b4a37;}
+  .badge-sewing{background:#f1d9a8;color:#7a5416;}
+  .badge-ready{background:#cfe3de;color:#215449;}
+  .badge-done{background:#d7e6cb;color:#3a5a29;}
+  .badge-example{background:#e9d9d0;color:#7a3f24;}
+  .row-actions{display:flex;gap:8px;}
+  .row-actions button{background:none;border:1px solid var(--color-border-strong);border-radius:4px;padding:6px 11px;font-size:0.78rem;color:var(--color-text);}
+  .row-actions button:hover{border-color:var(--color-clay);color:var(--color-clay-strong);}
+  .row-actions button.danger:hover{border-color:#a33;color:#a33;}
+  .staff-empty{padding:60px 20px;text-align:center;color:var(--color-text-soft);font-size:0.92rem;}
+
+  /* ============ Mobile ============ */
+  @media (max-width:980px){
+    .nav-links{display:none;}
+    .menu-toggle{display:flex;}
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-visual{max-width:340px;margin-inline:auto;order:-1;}
+    .features{grid-template-columns:repeat(2,1fr);}
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+    .process-steps{grid-template-columns:repeat(2,1fr);}
+    .process-line{display:none;}
+    .craft-grid{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+    .booking-grid{grid-template-columns:1fr;gap:40px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .staff-form .form-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .utility-bar .wrap{justify-content:center;text-align:center;}
+    .features{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .process-steps{grid-template-columns:1fr;}
+    .craft-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    section{padding-block:64px;}
+    .stat-row{gap:24px;}
+    .staff-form .form-grid{grid-template-columns:1fr;}
+    .fab-whatsapp{width:50px;height:50px;bottom:16px;left:16px;}
+  }
+</style>
+</head>
+<body>
+
+<div id="scrollProgress" aria-hidden="true"></div>
+
+<div class="utility-bar">
+  <div class="wrap">
+    <span>خدمة التفصيل المنزلي داخل <strong>الرياض، الخرج، بريدة</strong></span>
+    <span>السبت – الخميس · ٩ص – ١٠م · <strong>966 5X XXX XXXX+</strong> (رقم تجريبي)</span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="خيّاط البيت">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="46" height="46" stroke="var(--color-clay)" stroke-width="1.6"/>
+        <path d="M24 8 L34 24 L24 40 L14 24 Z" stroke="var(--color-umber-strong)" stroke-width="1.6"/>
+        <circle cx="24" cy="24" r="5" fill="var(--color-ochre)"/>
+      </svg>
+      <span>
+        <span class="brand-name">خيّاط البيت</span>
+        <span class="brand-tag">خياطة ثوب أصيلة · يجيك للبيت</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#process">كيف نعمل</a></li>
+      <li><a href="#craft">حرفتنا</a></li>
+      <li><a href="#testimonials">آراء عملائنا</a></li>
+      <li><a href="#contact">تواصل معنا</a></li>
+    </ul>
+    <div class="nav-cta">
+      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تبديل المظهر الداكن/الفاتح">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" stroke-linecap="round"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.7A8.5 8.5 0 0 1 9.3 3.5a.6.6 0 0 0-.7-.8A9.7 9.7 0 1 0 21.3 15.4a.6.6 0 0 0-.8-.7Z"/></svg>
+      </button>
+      <a href="#booking" class="btn btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke-linecap="round"/></svg>
+        احجز زيارة
+      </a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="wrap" style="display:none;padding-bottom:18px;">
+    <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:14px;font-weight:600;">
+      <li><a href="#services">الخدمات</a></li>
+      <li><a href="#process">كيف نعمل</a></li>
+      <li><a href="#craft">حرفتنا</a></li>
+      <li><a href="#testimonials">آراء عملائنا</a></li>
+      <li><a href="#contact">تواصل معنا</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="sadu-band" aria-hidden="true"></div>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">خياطة ثوب رجالي منزلية</span>
+        <h1>
+          <span class="cut"><span>الخيّاط اليوم</span></span>
+          <span class="cut"><span><em>يجيك</em> لباب بيتك</span></span>
+        </h1>
+        <p class="hero-lead">نجمع بين حرفة الخياطة التراثية الأصيلة وراحة بيتك. نوصلك، نأخذ مقاسك بدقة، تختار قماشك، ونسلّمك ثوبًا مفصّلًا بالكامل على شخصك — دون ما تطلع من صالتك.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#booking">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.34 2 11.7c0 2.02.66 3.9 1.8 5.46L2.5 22l5.02-1.3a10.4 10.4 0 0 0 4.48 1c5.52 0 10-4.34 10-9.7C22 6.34 17.52 2 12 2Zm0 17.7c-1.5 0-2.93-.4-4.16-1.1l-.3-.17-2.98.77.8-2.83-.2-.3a7.9 7.9 0 0 1-1.26-4.37c0-4.3 3.66-7.8 8.1-7.8 4.44 0 8.1 3.5 8.1 7.8 0 4.3-3.66 8-8.1 8Zm4.4-5.85c-.24-.12-1.44-.7-1.66-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.37-1.94-1.18-.72-.62-1.2-1.4-1.34-1.64-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.3-.75-1.78-.2-.47-.4-.4-.55-.4h-.47c-.16 0-.42.06-.64.3-.22.24-.85.82-.85 2s.87 2.32.99 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.5.58.18 1.1.16 1.52.1.46-.07 1.44-.58 1.64-1.15.2-.57.2-1.06.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg>
+            احجز زيارتك عبر واتساب
+          </a>
+          <a class="btn btn-ghost" href="tel:+9665XXXXXXXX">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z" stroke-linejoin="round"/></svg>
+            اتصل بنا الآن
+          </a>
+        </div>
+
+        <div class="stat-row" id="statRow">
+          <div class="stat"><b data-count="12">0</b><span>سنة خبرة حرفية</span></div>
+          <div class="stat"><b data-count="3200">0</b><span>عميل راضٍ</span></div>
+          <div class="stat"><b data-count="48" data-suffix="س">0</b><span>أسرع موعد تسليم</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 360 380">
+          <circle class="ring" cx="180" cy="180" r="150" fill="none" stroke="var(--color-border-strong)" stroke-width="1"/>
+          <path d="M180 40 L300 180 L180 320 L60 180 Z" fill="none" stroke="var(--color-clay)" stroke-width="1.6"/>
+          <path d="M180 90 L260 180 L180 270 L100 180 Z" fill="none" stroke="var(--color-umber-strong)" stroke-width="1.6"/>
+          <!-- thobe silhouette, minimal line art -->
+          <path d="M150 130 q30 -26 60 0 l10 34 -18 8 -4 -14 -4 130 q-2 14 -40 14 t-40 -14 l-4 -130 -4 14 -18 -8 Z"
+                fill="none" stroke="var(--color-text)" stroke-width="2.2" stroke-linejoin="round"/>
+          <circle cx="180" cy="140" r="5" fill="var(--color-ochre)"/>
+          <circle cx="180" cy="160" r="5" fill="var(--color-ochre)"/>
+          <circle cx="180" cy="180" r="5" fill="var(--color-ochre)"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <span>ثوب يومي</span><span>ثوب مناسبات</span><span>ثوب صيفي</span><span>ثوب شتوي</span><span>تعديل وتصليح</span><span>يجيك لباب البيت</span><span>خامات مستوردة</span><span>ضمان القياس</span>
+      <span>ثوب يومي</span><span>ثوب مناسبات</span><span>ثوب صيفي</span><span>ثوب شتوي</span><span>تعديل وتصليح</span><span>يجيك لباب البيت</span><span>خامات مستوردة</span><span>ضمان القياس</span>
+    </div>
+  </div>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">ليش خيّاط البيت</span>
+        <h2>حرفة أصيلة، تجربة توصلك لبيتك</h2>
+        <p>ما نبيع لك ثوب بس، نبيع لك تجربة خياطة تحترم وقتك وذوقك وتفاصيلك.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="features">
+        <div class="feature" data-reveal>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10.5 12 3l9 7.5M5 9.5V21h14V9.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M9 21v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>يجيك لين بيتك</h3>
+          <p>فريقنا يوصلك بالموعد المتفق عليه، بعينات القماش وأدوات القياس، بدون ما تطلع من بيتك.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v4H4zM4 10h10v10H4zM17 10h3v10h-3z" stroke-linejoin="round"/></svg>
+          <h3>خامات مختارة بعناية</h3>
+          <p>نتعامل مع أفخم الأقمشة المستوردة والمحلية، ونساعدك تختار الخامة المناسبة لثوبك.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>دقة في المقاس</h3>
+          <p>كل ثوب يمر بجلستين قياس وتعديل قبل التسليم النهائي، عشان يطلع بالضبط على شخصك.</p>
+        </div>
+        <div class="feature" data-reveal>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h11M11 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 5v14" stroke-linecap="round"/></svg>
+          <h3>التزام بالوقت</h3>
+          <p>نلتزم بموعد التسليم اللي نتفق عليه من أول يوم، ونتابع معك خطوة بخطوة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="parapet" aria-hidden="true"></div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">خدماتنا</span>
+        <h2>ثوبك، على مزاجك وموسمك</h2>
+        <p>من الثوب اليومي إلى ثوب العرس — كل قطعة تُفصّل من الصفر على مقاسك.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-reveal>
+          <span class="num">01</span>
+          <h3>ثوب رجالي يومي</h3>
+          <p>تفصيل يومي بخامات قطنية فاخرة، بقصّة كلاسيكية أو خليجية حسب رغبتك.</p>
+          <div class="service-price"><b>يبدأ من ٢٥٠ ر.س</b><a href="#booking">اطلب الآن ←</a></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="num">02</span>
+          <h3>ثوب المناسبات والأعراس</h3>
+          <p>تصميم مميز بتفاصيل دقيقة وياقة مطرزة، مخصص للأعراس والمناسبات الخاصة.</p>
+          <div class="service-price"><b>يبدأ من ٤٥٠ ر.س</b><a href="#booking">اطلب الآن ←</a></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="num">03</span>
+          <h3>ثوب صيفي خفيف</h3>
+          <p>قماش تيل قطني خفيف يمتص الحرارة، مناسب للأجواء الحارة طول اليوم.</p>
+          <div class="service-price"><b>يبدأ من ٢٨٠ ر.س</b><a href="#booking">اطلب الآن ←</a></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="num">04</span>
+          <h3>ثوب شتوي دافئ</h3>
+          <p>خامة أثقل بلمسة صوف ناعمة، تدفّيك في الشتاء بدون ما تثقل عليك.</p>
+          <div class="service-price"><b>يبدأ من ٣٢٠ ر.س</b><a href="#booking">اطلب الآن ←</a></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="num">05</span>
+          <h3>تعديل وتصليح الثوب</h3>
+          <p>تعديل مقاسات وإصلاح قطع جاهزة بدقة، لثياب موجودة عندك بالفعل.</p>
+          <div class="service-price"><b>يبدأ من ٦٠ ر.س</b><a href="#booking">اطلب الآن ←</a></div>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="num">06</span>
+          <h3>طلبات بالجملة</h3>
+          <p>تفصيل عدة ثياب دفعة وحدة للعائلة أو جهة العمل، بأسعار خاصة للكمية.</p>
+          <div class="service-price"><b>حسب الطلب</b><a href="#booking">اطلب الآن ←</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" style="background:var(--color-surface);">
+    <div class="wrap">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">كيف نعمل</span>
+        <h2>من أول تواصل، إلى باب بيتك</h2>
+        <p>أربع خطوات بسيطة تفصل بينك وبين ثوبك الجديد.</p>
+      </div>
+      <div class="process-line-wrap">
+        <div class="process-line" aria-hidden="true"><i id="processFill"></i></div>
+        <div class="process-steps">
+          <div class="process-step" data-reveal>
+            <div class="dot">١</div>
+            <h3>تواصل وحدد موعدك</h3>
+            <p>راسلنا عبر واتساب أو نموذج الحجز، وحدد الوقت المناسب لك.</p>
+          </div>
+          <div class="process-step" data-reveal>
+            <div class="dot">٢</div>
+            <h3>نجيك لباب البيت</h3>
+            <p>فريقنا يوصلك بعينات الأقمشة وأدوات القياس، لأخذ مقاسك صح من أول مرة.</p>
+          </div>
+          <div class="process-step" data-reveal>
+            <div class="dot">٣</div>
+            <h3>التفصيل بعناية</h3>
+            <p>نبدأ الحياكة بيد حرفيين متمرسين، مع جلسة تعديل قبل التسليم.</p>
+          </div>
+          <div class="process-step" data-reveal>
+            <div class="dot">٤</div>
+            <h3>التسليم والتجربة</h3>
+            <p>نوصلك القطعة جاهزة لبيتك، ونتأكد إنها ملبوسة عليك بالكامل.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="craft">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">حرفتنا</span>
+        <h2>تفاصيل تصنع الفرق</h2>
+        <p>الجودة تبان في التفاصيل اللي ما تُشاف بسرعة — من نوع الخيط إلى نوعية الزر.</p>
+      </div>
+      <div class="craft-grid">
+        <div class="swatch" data-reveal>
+          <div class="swatch-art tayl"></div>
+          <div class="swatch-label"><b>قماش التيل الفاخر</b><span>نسيج خفيف يناسب الأجواء الحارة</span></div>
+        </div>
+        <div class="swatch" data-reveal>
+          <div class="swatch-art qasab"></div>
+          <div class="swatch-label"><b>خيط القصب الذهبي</b><span>تطريز يدوي على ياقات ثوب المناسبات</span></div>
+        </div>
+        <div class="swatch" data-reveal>
+          <div class="swatch-art sadaf"></div>
+          <div class="swatch-label"><b>أزرار الصدف الطبيعي</b><span>لمسة تراثية بجودة تدوم طويلًا</span></div>
+        </div>
+        <div class="swatch" data-reveal>
+          <div class="swatch-art harir"></div>
+          <div class="swatch-label"><b>بطانة حريرية</b><span>راحة إضافية تحت كل ثوب نفصّله</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" style="background:var(--color-surface);">
+    <div class="wrap">
+      <div class="section-head center" data-reveal>
+        <span class="eyebrow">آراء عملائنا</span>
+        <h2>كلام عملائنا فينا</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi" data-reveal>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7c-2.2 0-4 1.8-4 4v6h6v-6H6c0-1.1.9-2 2-2V7Zm10 0c-2.2 0-4 1.8-4 4v6h6v-6h-3c0-1.1.9-2 2-2V7Z"/></svg>
+          <p>فعلًا وفّروا علي وقت. جو الموعد لبيتي، أخذوا المقاس بدقة، وسلّموني الثوب بالضبط زي ما أبيه.</p>
+          <footer><i>ف</i> <span><b>أبو فهد</b> · الرياض</span></footer>
+        </div>
+        <div class="testi" data-reveal>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7c-2.2 0-4 1.8-4 4v6h6v-6H6c0-1.1.9-2 2-2V7Zm10 0c-2.2 0-4 1.8-4 4v6h6v-6h-3c0-1.1.9-2 2-2V7Z"/></svg>
+          <p>الثوب اللي فصّلوه لي لعرسي طلع فخم فوق التوقعات، وخيط القصب على الياقة واضح وشغل نظيف.</p>
+          <footer><i>س</i> <span><b>سلطان</b> · بريدة</span></footer>
+        </div>
+        <div class="testi" data-reveal>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7c-2.2 0-4 1.8-4 4v6h6v-6H6c0-1.1.9-2 2-2V7Zm10 0c-2.2 0-4 1.8-4 4v6h6v-6h-3c0-1.1.9-2 2-2V7Z"/></svg>
+          <p>التزامهم بالمواعيد شيء نادر هالأيام. من أول اتصال إلى التسليم ما تجاوز يومين.</p>
+          <footer><i>م</i> <span><b>محمد</b> · الخرج</span></footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking" class="booking">
+    <div class="wrap booking-grid">
+      <div data-reveal>
+        <span class="eyebrow">احجز زيارتك</span>
+        <h2 style="margin-top:14px;">جاهزين نجيك لباب بيتك</h2>
+        <p style="margin-top:14px;max-width:44ch;">عبّي النموذج وبنتواصل معك خلال ساعات لتأكيد الموعد، أو راسلنا مباشرة على واتساب.</p>
+        <ul class="booking-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> زيارة مجانية لأخذ المقاس</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> عرض عينات القماش في بيتك</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg> تسليم في الموعد المتفق عليه</li>
+        </ul>
+        <p class="booking-note">* هذا نموذج تجريبي — عدّل رقم واتساب المتجر في أعلى ملف <code>index.html</code> (متغيّر WHATSAPP_NUMBER) قبل النشر الفعلي.</p>
+      </div>
+
+      <form class="booking-form" id="bookingForm" data-reveal>
+        <div class="field-row">
+          <div class="field">
+            <label for="fname">الاسم الكامل</label>
+            <input id="fname" name="fname" type="text" placeholder="مثال: عبدالله المطيري" required>
+          </div>
+          <div class="field">
+            <label for="fphone">رقم الجوال</label>
+            <input id="fphone" name="fphone" type="tel" placeholder="05xxxxxxxx" required>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="fcity">المدينة / الحي</label>
+            <input id="fcity" name="fcity" type="text" placeholder="مثال: الرياض - النرجس" required>
+          </div>
+          <div class="field">
+            <label for="fservice">نوع الخدمة</label>
+            <select id="fservice" name="fservice">
+              <option>ثوب رجالي يومي</option>
+              <option>ثوب المناسبات والأعراس</option>
+              <option>ثوب صيفي خفيف</option>
+              <option>ثوب شتوي دافئ</option>
+              <option>تعديل وتصليح الثوب</option>
+              <option>طلبات بالجملة</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field full">
+            <label for="ftime">الوقت المفضل للزيارة</label>
+            <select id="ftime" name="ftime">
+              <option>صباحًا (٩ - ١٢)</option>
+              <option>ظهرًا (١٢ - ٤)</option>
+              <option>مساءً (٤ - ١٠)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field full">
+            <label for="fnote">ملاحظات إضافية</label>
+            <textarea id="fnote" name="fnote" placeholder="أي تفاصيل تحب نعرفها قبل الزيارة"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.34 2 11.7c0 2.02.66 3.9 1.8 5.46L2.5 22l5.02-1.3a10.4 10.4 0 0 0 4.48 1c5.52 0 10-4.34 10-9.7C22 6.34 17.52 2 12 2Z"/></svg>
+          إرسال الطلب عبر واتساب
+        </button>
+        <p class="form-hint">بالضغط على الزر بيفتح واتساب برسالة معبّأة بمعلوماتك، وترسلها لنا مباشرة.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site" id="contact">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="46" height="46" stroke="var(--color-clay)" stroke-width="1.6"/>
+          <path d="M24 8 L34 24 L24 40 L14 24 Z" stroke="var(--color-umber-strong)" stroke-width="1.6"/>
+          <circle cx="24" cy="24" r="5" fill="var(--color-ochre)"/>
+        </svg>
+        <span class="brand-name">خيّاط البيت</span>
+      </a>
+      <p>خياطة ثوب رجالي أصيلة، تجمع بين الحرفة التقليدية وراحة الخدمة المنزلية.</p>
+      <div class="social-row">
+        <a href="#" aria-label="إنستقرام"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+        <a href="#" aria-label="تويتر / X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4l7.4 9.6L4.4 20H7l5-5.4L16 20h4l-7.7-10L19.7 4H17l-4.6 5-4-5H4Z"/></svg></a>
+        <a href="#" aria-label="تيك توك"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 3c.4 2 1.9 3.5 4 3.8v3a7 7 0 0 1-4-1.3v6.2a5.7 5.7 0 1 1-5-5.7v3.1a2.7 2.7 0 1 0 2 2.6V3h3Z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#process">كيف نعمل</a></li>
+        <li><a href="#craft">حرفتنا</a></li>
+        <li><a href="#testimonials">آراء عملائنا</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>الخدمات</h4>
+      <ul>
+        <li><a href="#services">ثوب يومي</a></li>
+        <li><a href="#services">ثوب مناسبات</a></li>
+        <li><a href="#services">ثوب صيفي وشتوي</a></li>
+        <li><a href="#services">تعديل وتصليح</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li>جوال / واتساب: 966 5X XXX XXXX+</li>
+        <li>بريد إلكتروني: hello@khayyat-albeit.example</li>
+        <li>الرياض، المملكة العربية السعودية</li>
+        <li class="staff-link"><a href="#" id="staffOpenLink">لوحة الموظفين ←</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 خيّاط البيت. جميع الحقوق محفوظة.</span>
+    <span>تصميم وحياكة بلمسة تراثية أصيلة</span>
+  </div>
+</footer>
+
+<a class="fab-whatsapp" id="fabWhatsapp" href="#" aria-label="راسلنا عبر واتساب" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.34 2 11.7c0 2.02.66 3.9 1.8 5.46L2.5 22l5.02-1.3a10.4 10.4 0 0 0 4.48 1c5.52 0 10-4.34 10-9.7C22 6.34 17.52 2 12 2Zm0 17.7c-1.5 0-2.93-.4-4.16-1.1l-.3-.17-2.98.77.8-2.83-.2-.3a7.9 7.9 0 0 1-1.26-4.37c0-4.3 3.66-7.8 8.1-7.8 4.44 0 8.1 3.5 8.1 7.8 0 4.3-3.66 8-8.1 8Zm4.4-5.85c-.24-.12-1.44-.7-1.66-.78-.22-.08-.38-.12-.55.12-.16.24-.63.78-.77.94-.14.16-.28.18-.52.06-.24-.12-1.02-.37-1.94-1.18-.72-.62-1.2-1.4-1.34-1.64-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.3-.75-1.78-.2-.47-.4-.4-.55-.4h-.47c-.16 0-.42.06-.64.3-.22.24-.85.82-.85 2s.87 2.32.99 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.5.58.18 1.1.16 1.52.1.46-.07 1.44-.58 1.64-1.15.2-.57.2-1.06.14-1.15-.06-.1-.22-.16-.46-.28Z"/></svg>
+</a>
+
+<!-- ============ Staff panel: measurements & fabric registry ============ -->
+<div id="staffOverlay" role="dialog" aria-label="لوحة الموظفين">
+  <div class="staff-header">
+    <div class="wrap">
+      <h2>لوحة الموظفين — المقاسات والأقمشة</h2>
+      <div class="staff-header-actions">
+        <button class="btn btn-ghost" id="staffLogout" hidden>تسجيل خروج</button>
+        <button class="btn btn-ghost" id="staffClose">رجوع للموقع</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="staffLockScreen" class="staff-lock">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="10" width="16" height="10" rx="1.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke-linecap="round"/></svg>
+    <h2>دخول الموظفين</h2>
+    <p>هذي اللوحة خاصة بفريق العمل لتسجيل مقاسات وأقمشة العملاء. أدخل الرقم السري للمتابعة.</p>
+    <form id="staffLoginForm">
+      <input type="password" id="staffPin" inputmode="numeric" placeholder="••••" maxlength="6" autocomplete="off">
+      <p class="error" id="staffLoginError"></p>
+      <button type="submit" class="btn btn-primary">دخول</button>
+    </form>
+  </div>
+
+  <div id="staffDash" class="staff-dash" hidden>
+    <div class="staff-notice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
+      <span>بيانات العملاء تُحفظ محليًا داخل متصفح هذا الجهاز فقط، ولا تُشارك تلقائيًا مع أجهزة الموظفين الآخرين. لاستخدام حقيقي متعدد الأجهزة يحتاج المشروع قاعدة بيانات فعلية بدل هذا التخزين المحلي.</span>
+    </div>
+
+    <div class="staff-toolbar">
+      <div class="staff-search">
+        <input type="text" id="staffSearch" placeholder="ابحث بالاسم أو رقم الجوال…">
+        <select id="staffStatusFilter">
+          <option value="">كل الحالات</option>
+          <option value="measuring">قيد القياس</option>
+          <option value="sewing">قيد الحياكة</option>
+          <option value="ready">جاهز للتسليم</option>
+          <option value="done">تم التسليم</option>
+        </select>
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="btn btn-ghost" id="staffExport">تصدير CSV</button>
+        <button class="btn btn-primary" id="staffAddNew">+ إضافة سجل جديد</button>
+      </div>
+    </div>
+
+    <form class="staff-form" id="staffForm">
+      <h3 id="staffFormTitle">سجل عميل جديد</h3>
+      <input type="hidden" id="recordId">
+      <div class="form-grid">
+        <div class="form-section-title">بيانات العميل</div>
+        <div class="field"><label for="sName">الاسم الكامل</label><input id="sName" required></div>
+        <div class="field"><label for="sPhone">رقم الجوال</label><input id="sPhone" type="tel" required></div>
+        <div class="field"><label for="sDate">تاريخ القياس</label><input id="sDate" type="date"></div>
+        <div class="field"><label for="sStatus">حالة الطلب</label>
+          <select id="sStatus">
+            <option value="measuring">قيد القياس</option>
+            <option value="sewing">قيد الحياكة</option>
+            <option value="ready">جاهز للتسليم</option>
+            <option value="done">تم التسليم</option>
+          </select>
+        </div>
+
+        <div class="form-section-title">القياسات (بالسنتيمتر)</div>
+        <div class="field"><label for="mLength">الطول الكامل</label><input id="mLength" type="number" step="0.5" min="0"></div>
+        <div class="field"><label for="mShoulder">الكتف</label><input id="mShoulder" type="number" step="0.5" min="0"></div>
+        <div class="field"><label for="mChest">محيط الصدر</label><input id="mChest" type="number" step="0.5" min="0"></div>
+        <div class="field"><label for="mWaist">محيط الخصر</label><input id="mWaist" type="number" step="0.5" min="0"></div>
+        <div class="field"><label for="mSleeve">طول الكم</label><input id="mSleeve" type="number" step="0.5" min="0"></div>
+        <div class="field"><label for="mArm">محيط الزند</label><input id="mArm" type="number" step="0.5" min="0"></div>
+        <div class="field"><label for="mNeck">مقاس الياقة</label><input id="mNeck" type="number" step="0.5" min="0"></div>
+        <div class="field"><label for="mCollar">نوع الياقة</label>
+          <select id="mCollar"><option>كلاسيك</option><option>مندرين</option></select>
+        </div>
+        <div class="field"><label for="mSleeveType">نوع الكم</label>
+          <select id="mSleeveType"><option>سادة</option><option>مطرزة</option></select>
+        </div>
+
+        <div class="form-section-title">القماش</div>
+        <div class="field"><label for="fType">نوع القماش</label>
+          <select id="fType"><option>تيل قطني</option><option>صوف خفيف</option><option>كتان</option><option>حرير مخلوط</option><option>أخرى</option></select>
+        </div>
+        <div class="field"><label for="fColor">اللون</label><input id="fColor" placeholder="مثال: أبيض عاجي"></div>
+        <div class="field"><label for="fQty">الكمية (متر)</label><input id="fQty" type="number" step="0.1" min="0"></div>
+        <div class="field"><label for="fSupplier">المورد / رقم الدفعة</label><input id="fSupplier"></div>
+        <div class="field"><label for="fPrice">سعر المتر (ر.س)</label><input id="fPrice" type="number" step="1" min="0"></div>
+
+        <div class="field full" style="grid-column:1/-1;">
+          <label for="sNotes">ملاحظات إضافية</label>
+          <textarea id="sNotes" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="staff-form-actions">
+        <button type="button" class="btn-text" id="staffCancel">إلغاء</button>
+        <button type="submit" class="btn btn-primary">حفظ السجل</button>
+      </div>
+    </form>
+
+    <div class="staff-table-wrap">
+      <table class="staff-table">
+        <thead>
+          <tr>
+            <th>الاسم</th><th>الجوال</th><th>الحالة</th><th>تاريخ القياس</th><th>القماش</th><th>إجراءات</th>
+          </tr>
+        </thead>
+        <tbody id="staffTableBody"></tbody>
+      </table>
+      <div class="staff-empty" id="staffEmpty" hidden>لا توجد سجلات مطابقة. اضغط "إضافة سجل جديد" للبدء.</div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  // ---- إعدادات المتجر: عدّل هذي القيم قبل النشر الفعلي ----
+  var WHATSAPP_NUMBER = "9665XXXXXXXX"; // رقم واتساب المتجر بصيغة دولية بدون +
+  var STAFF_PIN = "1234"; // غيّر الرقم السري قبل الاستخدام الفعلي
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Theme toggle ----
+  var themeToggle = document.getElementById('themeToggle');
+  var storedTheme = null;
+  try { storedTheme = localStorage.getItem('khayyat-theme'); } catch(e){}
+  if (storedTheme === 'light' || storedTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', storedTheme);
+  }
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function(){
+      var current = document.documentElement.getAttribute('data-theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var effectiveDark = current ? current === 'dark' : prefersDark;
+      var next = effectiveDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('khayyat-theme', next); } catch(e){}
+    });
+  }
+
+  // ---- Scroll progress bar ----
+  var progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    if (!progressBar) return;
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  document.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // Mobile menu
+  var menuToggle = document.getElementById('menuToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', function(){
+      var open = mobileMenu.style.display === 'block';
+      mobileMenu.style.display = open ? 'none' : 'block';
+      menuToggle.setAttribute('aria-expanded', String(!open));
+    });
+    mobileMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ mobileMenu.style.display = 'none'; });
+    });
+  }
+
+  // Pause marquee for reduced motion
+  if (reduceMotion) {
+    var mq = document.getElementById('marquee');
+    if (mq) mq.style.animation = 'none';
+  }
+
+  // Floating WhatsApp button target
+  var fab = document.getElementById('fabWhatsapp');
+  if (fab) fab.href = "https://wa.me/" + WHATSAPP_NUMBER;
+
+  // Booking form -> WhatsApp deep link
+  var form = document.getElementById('bookingForm');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var data = new FormData(form);
+      var lines = [
+        "طلب حجز زيارة - خيّاط البيت",
+        "الاسم: " + data.get('fname'),
+        "الجوال: " + data.get('fphone'),
+        "المدينة/الحي: " + data.get('fcity'),
+        "الخدمة: " + data.get('fservice'),
+        "الوقت المفضل: " + data.get('ftime'),
+        "ملاحظات: " + (data.get('fnote') || "لا يوجد")
+      ];
+      var text = encodeURIComponent(lines.join("\n"));
+      window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + text, "_blank", "noopener");
+    });
+  }
+
+  // Count-up stats
+  var ARABIC_DIGITS = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+  function toArabicDigits(str){
+    return String(str).replace(/[0-9]/g, function(d){ return ARABIC_DIGITS[+d]; });
+  }
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var suffix = el.getAttribute('data-suffix') || '';
+    var obj = { v: 0 };
+    if (window.gsap && !reduceMotion) {
+      gsap.to(obj, {
+        v: target, duration: 1.6, ease: 'power2.out',
+        onUpdate: function(){ el.textContent = toArabicDigits(Math.round(obj.v).toLocaleString('en-US')) + suffix; }
+      });
+    } else {
+      el.textContent = toArabicDigits(target.toLocaleString('en-US')) + suffix;
+    }
+  }
+
+  if (window.gsap && window.ScrollTrigger && !reduceMotion) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    var tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.to('.hero-copy h1 .cut span', { yPercent: 0, duration: 0.9, stagger: 0.12 })
+      .from('.hero-lead', { opacity: 0, y: 16, duration: 0.7 }, '-=0.5')
+      .from('.hero-actions .btn', { opacity: 0, y: 16, duration: 0.6, stagger: 0.1 }, '-=0.4')
+      .from('.stat-row .stat', { opacity: 0, y: 16, duration: 0.6, stagger: 0.1 }, '-=0.3')
+      .from('.hero-visual', { opacity: 0, scale: 0.92, duration: 0.9 }, '-=0.9')
+      .from('.hero-visual .ring', { rotate: -25, transformOrigin: '50% 50%', duration: 1.4, ease: 'power2.out' }, '-=0.9')
+      .add(function(){
+        document.querySelectorAll('#statRow [data-count]').forEach(animateCount);
+      });
+
+    gsap.utils.toArray('[data-reveal]').forEach(function(el){
+      gsap.from(el, {
+        opacity: 0, y: 28, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%' }
+      });
+    });
+
+    var fill = document.getElementById('processFill');
+    if (fill) {
+      gsap.to(fill, {
+        width: '100%', ease: 'none',
+        scrollTrigger: { trigger: '.process-line-wrap', start: 'top 70%', end: 'bottom 60%', scrub: 0.6 }
+      });
+    }
+
+    gsap.to('.hero-visual svg', { y: -10, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+
+  } else {
+    document.querySelectorAll('.hero-copy h1 .cut span').forEach(function(s){ s.style.transform = 'translateY(0)'; });
+    document.querySelectorAll('#statRow [data-count]').forEach(animateCount);
+    var fillEl = document.getElementById('processFill');
+    if (fillEl) fillEl.style.width = '100%';
+  }
+
+  /* ============================================================
+     Staff panel: measurement & fabric registry (localStorage)
+     ============================================================ */
+  var STORAGE_KEY = 'khayyatAlbeit.staffRecords.v1';
+  var overlay = document.getElementById('staffOverlay');
+  var lockScreen = document.getElementById('staffLockScreen');
+  var dash = document.getElementById('staffDash');
+  var pinInput = document.getElementById('staffPin');
+  var loginForm = document.getElementById('staffLoginForm');
+  var loginError = document.getElementById('staffLoginError');
+  var logoutBtn = document.getElementById('staffLogout');
+  var closeBtn = document.getElementById('staffClose');
+  var openLink = document.getElementById('staffOpenLink');
+  var staffForm = document.getElementById('staffForm');
+  var addNewBtn = document.getElementById('staffAddNew');
+  var cancelBtn = document.getElementById('staffCancel');
+  var tableBody = document.getElementById('staffTableBody');
+  var emptyState = document.getElementById('staffEmpty');
+  var searchInput = document.getElementById('staffSearch');
+  var statusFilter = document.getElementById('staffStatusFilter');
+  var exportBtn = document.getElementById('staffExport');
+  var formTitle = document.getElementById('staffFormTitle');
+
+  var STATUS_LABEL = { measuring: 'قيد القياس', sewing: 'قيد الحياكة', ready: 'جاهز للتسليم', done: 'تم التسليم' };
+  var STATUS_CLASS = { measuring: 'badge-measuring', sewing: 'badge-sewing', ready: 'badge-ready', done: 'badge-done' };
+
+  function loadRecords(){
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch(e){}
+    // سجل توضيحي أول استخدام — يوضح شكل الحقول ويمكن حذفه
+    return [{
+      id: 'example-1', example: true, name: 'مثال: تركي العتيبي', phone: '0501234567',
+      date: new Date().toISOString().slice(0,10), status: 'measuring',
+      length: '145', shoulder: '48', chest: '112', waist: '108', sleeve: '62', arm: '32', neck: '40',
+      collar: 'كلاسيك', sleeveType: 'سادة',
+      fabricType: 'تيل قطني', fabricColor: 'أبيض عاجي', fabricQty: '4', fabricSupplier: 'مورد الرياض - دفعة ٧', fabricPrice: '45',
+      notes: 'هذا سجل تجريبي للتوضيح — احذفه بعد أول عميل حقيقي.'
+    }];
+  }
+  function saveRecords(list){
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(list)); } catch(e){}
+  }
+
+  var records = loadRecords();
+
+  function resetForm(){
+    staffForm.reset();
+    document.getElementById('recordId').value = '';
+    document.getElementById('sDate').value = new Date().toISOString().slice(0,10);
+    formTitle.textContent = 'سجل عميل جديد';
+    staffForm.classList.remove('open');
+  }
+
+  function fillForm(rec){
+    document.getElementById('recordId').value = rec.id;
+    document.getElementById('sName').value = rec.name || '';
+    document.getElementById('sPhone').value = rec.phone || '';
+    document.getElementById('sDate').value = rec.date || '';
+    document.getElementById('sStatus').value = rec.status || 'measuring';
+    document.getElementById('mLength').value = rec.length || '';
+    document.getElementById('mShoulder').value = rec.shoulder || '';
+    document.getElementById('mChest').value = rec.chest || '';
+    document.getElementById('mWaist').value = rec.waist || '';
+    document.getElementById('mSleeve').value = rec.sleeve || '';
+    document.getElementById('mArm').value = rec.arm || '';
+    document.getElementById('mNeck').value = rec.neck || '';
+    document.getElementById('mCollar').value = rec.collar || 'كلاسيك';
+    document.getElementById('mSleeveType').value = rec.sleeveType || 'سادة';
+    document.getElementById('fType').value = rec.fabricType || 'تيل قطني';
+    document.getElementById('fColor').value = rec.fabricColor || '';
+    document.getElementById('fQty').value = rec.fabricQty || '';
+    document.getElementById('fSupplier').value = rec.fabricSupplier || '';
+    document.getElementById('fPrice').value = rec.fabricPrice || '';
+    document.getElementById('sNotes').value = rec.notes || '';
+    formTitle.textContent = 'تعديل سجل: ' + (rec.name || '');
+    staffForm.classList.add('open');
+    staffForm.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  }
+
+  function renderTable(){
+    var q = (searchInput.value || '').trim().toLowerCase();
+    var statusQ = statusFilter.value;
+    var filtered = records.filter(function(r){
+      var matchesQ = !q || (r.name || '').toLowerCase().indexOf(q) > -1 || (r.phone || '').indexOf(q) > -1;
+      var matchesStatus = !statusQ || r.status === statusQ;
+      return matchesQ && matchesStatus;
+    });
+
+    tableBody.innerHTML = '';
+    emptyState.hidden = filtered.length > 0;
+
+    filtered.forEach(function(r){
+      var tr = document.createElement('tr');
+
+      var tdName = document.createElement('td');
+      tdName.textContent = r.name + (r.example ? '' : '');
+      if (r.example) {
+        var tag = document.createElement('span');
+        tag.className = 'badge badge-example';
+        tag.style.marginRight = '8px';
+        tag.textContent = 'مثال';
+        tdName.appendChild(tag);
+      }
+
+      var tdPhone = document.createElement('td'); tdPhone.textContent = r.phone || '—';
+      var tdStatus = document.createElement('td');
+      var badge = document.createElement('span');
+      badge.className = 'badge ' + (STATUS_CLASS[r.status] || 'badge-measuring');
+      badge.textContent = STATUS_LABEL[r.status] || r.status;
+      tdStatus.appendChild(badge);
+
+      var tdDate = document.createElement('td'); tdDate.textContent = r.date || '—';
+      var tdFabric = document.createElement('td'); tdFabric.textContent = (r.fabricType || '—') + (r.fabricColor ? ' · ' + r.fabricColor : '');
+
+      var tdActions = document.createElement('td');
+      var actionsWrap = document.createElement('div');
+      actionsWrap.className = 'row-actions';
+      var editBtn = document.createElement('button');
+      editBtn.type = 'button'; editBtn.textContent = 'تعديل';
+      editBtn.addEventListener('click', function(){ fillForm(r); });
+      var delBtn = document.createElement('button');
+      delBtn.type = 'button'; delBtn.textContent = 'حذف'; delBtn.className = 'danger';
+      delBtn.addEventListener('click', function(){
+        if (window.confirm('تأكيد حذف سجل "' + r.name + '"؟')) {
+          records = records.filter(function(x){ return x.id !== r.id; });
+          saveRecords(records);
+          renderTable();
+        }
+      });
+      actionsWrap.appendChild(editBtn);
+      actionsWrap.appendChild(delBtn);
+      tdActions.appendChild(actionsWrap);
+
+      tr.appendChild(tdName); tr.appendChild(tdPhone); tr.appendChild(tdStatus);
+      tr.appendChild(tdDate); tr.appendChild(tdFabric); tr.appendChild(tdActions);
+      tableBody.appendChild(tr);
+    });
+  }
+
+  if (staffForm) {
+    staffForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var id = document.getElementById('recordId').value || ('rec-' + Date.now());
+      var rec = {
+        id: id, example: false,
+        name: document.getElementById('sName').value.trim(),
+        phone: document.getElementById('sPhone').value.trim(),
+        date: document.getElementById('sDate').value,
+        status: document.getElementById('sStatus').value,
+        length: document.getElementById('mLength').value,
+        shoulder: document.getElementById('mShoulder').value,
+        chest: document.getElementById('mChest').value,
+        waist: document.getElementById('mWaist').value,
+        sleeve: document.getElementById('mSleeve').value,
+        arm: document.getElementById('mArm').value,
+        neck: document.getElementById('mNeck').value,
+        collar: document.getElementById('mCollar').value,
+        sleeveType: document.getElementById('mSleeveType').value,
+        fabricType: document.getElementById('fType').value,
+        fabricColor: document.getElementById('fColor').value.trim(),
+        fabricQty: document.getElementById('fQty').value,
+        fabricSupplier: document.getElementById('fSupplier').value.trim(),
+        fabricPrice: document.getElementById('fPrice').value,
+        notes: document.getElementById('sNotes').value.trim()
+      };
+      var idx = records.findIndex(function(x){ return x.id === id; });
+      if (idx > -1) records[idx] = rec; else records.unshift(rec);
+      saveRecords(records);
+      renderTable();
+      resetForm();
+    });
+  }
+
+  if (addNewBtn) addNewBtn.addEventListener('click', function(){
+    resetForm();
+    staffForm.classList.add('open');
+    staffForm.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+  });
+  if (cancelBtn) cancelBtn.addEventListener('click', resetForm);
+  if (searchInput) searchInput.addEventListener('input', renderTable);
+  if (statusFilter) statusFilter.addEventListener('change', renderTable);
+
+  if (exportBtn) exportBtn.addEventListener('click', function(){
+    var cols = ['name','phone','date','status','length','shoulder','chest','waist','sleeve','arm','neck','collar','sleeveType','fabricType','fabricColor','fabricQty','fabricSupplier','fabricPrice','notes'];
+    var header = ['الاسم','الجوال','التاريخ','الحالة','الطول','الكتف','الصدر','الخصر','الكم','الزند','الياقة','نوع الياقة','نوع الكم','نوع القماش','اللون','الكمية(م)','المورد','سعر المتر','ملاحظات'];
+    var rows = [header.join(',')].concat(records.map(function(r){
+      return cols.map(function(c){
+        var v = (r[c] || '').toString().replace(/"/g, '""');
+        return '"' + v + '"';
+      }).join(',');
+    }));
+    var csv = '﻿' + rows.join('\n');
+    var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = 'سجلات-خياط-البيت.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  // ---- Lock / unlock ----
+  function openStaffPanel(){
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var unlocked = false;
+    try { unlocked = sessionStorage.getItem('khayyatAlbeit.staffUnlocked') === '1'; } catch(e){}
+    if (unlocked) showDash(); else showLock();
+  }
+  function closeStaffPanel(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function showLock(){
+    lockScreen.style.display = 'block';
+    dash.hidden = true;
+    logoutBtn.hidden = true;
+    loginError.textContent = '';
+    pinInput.value = '';
+    setTimeout(function(){ pinInput.focus(); }, 50);
+  }
+  function showDash(){
+    lockScreen.style.display = 'none';
+    dash.hidden = false;
+    logoutBtn.hidden = false;
+    resetForm();
+    renderTable();
+  }
+
+  if (openLink) openLink.addEventListener('click', function(e){ e.preventDefault(); openStaffPanel(); });
+  if (closeBtn) closeBtn.addEventListener('click', closeStaffPanel);
+  if (logoutBtn) logoutBtn.addEventListener('click', function(){
+    try { sessionStorage.removeItem('khayyatAlbeit.staffUnlocked'); } catch(e){}
+    showLock();
+  });
+  if (loginForm) loginForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (pinInput.value === STAFF_PIN) {
+      try { sessionStorage.setItem('khayyatAlbeit.staffUnlocked', '1'); } catch(err){}
+      showDash();
+    } else {
+      loginError.textContent = 'رقم سري غير صحيح، حاول مرة ثانية.';
+      pinInput.value = '';
+      pinInput.focus();
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
