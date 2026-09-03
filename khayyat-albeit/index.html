@@ -385,6 +385,20 @@
   .badge-ready{background:#cfe3de;color:#215449;}
   .badge-done{background:#d7e6cb;color:#3a5a29;}
   .badge-example{background:#e9d9d0;color:#7a3f24;}
+  .badge-paid{background:#d7e6cb;color:#3a5a29;}
+  .badge-partial{background:#f1d9a8;color:#7a5416;}
+  .badge-due{background:#f0d3ca;color:#8a3a24;}
+
+  /* ---- Financial summary (form + invoice) ---- */
+  .invoice-preview{
+    background:var(--color-surface);border:1px dashed var(--color-border-strong);
+    padding:14px 16px;font-size:0.86rem;
+  }
+  .invoice-preview .line{display:flex;justify-content:space-between;padding:4px 0;color:var(--color-text-soft);}
+  .invoice-preview .line b{color:var(--color-text);font-weight:600;font-variant-numeric:tabular-nums;}
+  .invoice-preview .line.total{border-top:1px dashed var(--color-border-strong);margin-top:6px;padding-top:10px;font-size:0.95rem;}
+  .invoice-preview .line.total b{color:var(--color-clay-strong);font-family:var(--font-display);font-size:1.15rem;}
+  .invoice-preview .line.remaining b{color:var(--color-clay-strong);}
 
   /* ---- Kanban production board ---- */
   .kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start;}
@@ -417,6 +431,49 @@
   }
   .staff-toast svg{width:18px;height:18px;flex:none;color:var(--color-band-accent);}
   .staff-toast.show{opacity:1;transform:translate(-50%,0);}
+
+  /* ---- Invoice modal ---- */
+  #invoiceModal{position:fixed;inset:0;z-index:150;display:none;align-items:flex-start;justify-content:center;overflow-y:auto;padding:40px 16px;}
+  #invoiceModal.open{display:flex;}
+  #invoiceModal .backdrop{position:fixed;inset:0;background:rgba(20,14,8,0.55);}
+  .invoice-sheet{
+    position:relative;background:var(--color-surface-raised);width:100%;max-width:640px;
+    padding:38px 40px;box-shadow:var(--shadow-lift);
+  }
+  .invoice-sheet .invoice-close{position:absolute;left:16px;top:16px;width:34px;height:34px;border-radius:50%;border:1px solid var(--color-border-strong);background:none;display:flex;align-items:center;justify-content:center;}
+  .invoice-sheet .invoice-close svg{width:16px;height:16px;}
+  .invoice-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:2px solid var(--color-clay);padding-bottom:18px;margin-bottom:22px;}
+  .invoice-head .brand{display:flex;align-items:center;gap:10px;}
+  .invoice-head .brand svg{width:34px;height:34px;}
+  .invoice-head .brand b{font-family:var(--font-display);font-size:1.3rem;}
+  .invoice-head .meta{text-align:left;font-size:0.82rem;color:var(--color-text-soft);}
+  .invoice-head .meta b{display:block;color:var(--color-text);font-family:var(--font-display);font-size:1rem;}
+  .invoice-parties{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;font-size:0.9rem;}
+  .invoice-parties .box{background:var(--color-surface);border:1px solid var(--color-border);padding:12px 14px;}
+  .invoice-parties .box span{display:block;font-size:0.74rem;color:var(--color-text-soft);margin-bottom:4px;}
+  .invoice-items{width:100%;border-collapse:collapse;font-size:0.88rem;margin-bottom:6px;}
+  .invoice-items th,.invoice-items td{padding:9px 6px;text-align:right;border-bottom:1px solid var(--color-border);}
+  .invoice-items th{font-size:0.76rem;color:var(--color-text-soft);}
+  .invoice-items td.num,.invoice-items th.num{text-align:left;font-variant-numeric:tabular-nums;}
+  .invoice-totals{margin-inline-start:auto;max-width:280px;margin-top:10px;}
+  .invoice-totals .line{display:flex;justify-content:space-between;padding:5px 0;font-size:0.9rem;color:var(--color-text-soft);}
+  .invoice-totals .line b{color:var(--color-text);font-variant-numeric:tabular-nums;}
+  .invoice-totals .line.grand{border-top:2px solid var(--color-clay);margin-top:6px;padding-top:10px;font-size:1.05rem;}
+  .invoice-totals .line.grand b{font-family:var(--font-display);color:var(--color-clay-strong);font-size:1.3rem;}
+  .invoice-foot{margin-top:26px;padding-top:16px;border-top:1px dashed var(--color-border-strong);font-size:0.78rem;color:var(--color-text-soft);text-align:center;}
+  .invoice-actions{display:flex;gap:12px;margin-top:26px;}
+  .invoice-actions .btn{flex:1;justify-content:center;}
+  @media print{
+    body *{visibility:hidden;}
+    .invoice-sheet, .invoice-sheet *{visibility:visible;}
+    .invoice-sheet{position:fixed;inset:0;max-width:none;box-shadow:none;padding:24px;}
+    .invoice-sheet .invoice-close,.invoice-actions{display:none;}
+    #invoiceModal .backdrop{display:none;}
+  }
+  @media (max-width:600px){
+    .invoice-sheet{padding:26px 20px;}
+    .invoice-parties{grid-template-columns:1fr;}
+  }
 
   /* ============ Mobile ============ */
   @media (max-width:980px){
@@ -937,6 +994,20 @@
         <div class="field"><label for="fSupplier">المورد / رقم الدفعة</label><input id="fSupplier"></div>
         <div class="field"><label for="fPrice">سعر المتر (ر.س)</label><input id="fPrice" type="number" step="1" min="0"></div>
 
+        <div class="form-section-title">الفاتورة المالية</div>
+        <div class="field full" style="grid-column:1/-1;">
+          <label for="sService">وصف الخدمة (يظهر بالفاتورة)</label>
+          <input id="sService" placeholder="مثال: تفصيل ثوب رجالي حسب المقاس">
+        </div>
+        <div class="field"><label for="fLabor">أجرة التفصيل (ر.س)</label><input id="fLabor" type="number" step="1" min="0" value="0"></div>
+        <div class="field"><label for="fDiscount">الخصم (ر.س)</label><input id="fDiscount" type="number" step="1" min="0" value="0"></div>
+        <div class="field"><label for="fDeposit">العربون المدفوع (ر.س)</label><input id="fDeposit" type="number" step="1" min="0" value="0"></div>
+        <div class="field full" style="grid-column:1/-1;display:flex;align-items:center;gap:8px;">
+          <input type="checkbox" id="fVat" style="width:auto;">
+          <label for="fVat" style="margin:0;">تطبيق ضريبة القيمة المضافة (١٥٪)</label>
+        </div>
+        <div class="invoice-preview" id="invoicePreviewBox" style="grid-column:1/-1;"></div>
+
         <div class="field full" style="grid-column:1/-1;">
           <label for="sNotes">ملاحظات إضافية</label>
           <textarea id="sNotes" rows="2"></textarea>
@@ -955,6 +1026,55 @@
 <div class="staff-toast" id="staffToast">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <span id="staffToastText"></span>
+</div>
+
+<div id="invoiceModal" role="dialog" aria-label="الفاتورة">
+  <div class="backdrop" id="invoiceBackdrop"></div>
+  <div class="invoice-sheet">
+    <button type="button" class="invoice-close" id="invoiceCloseBtn" aria-label="إغلاق">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18" stroke-linecap="round"/></svg>
+    </button>
+
+    <div class="invoice-head">
+      <div class="brand">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="46" height="46" stroke="var(--color-clay)" stroke-width="1.6"/>
+          <path d="M24 8 L34 24 L24 40 L14 24 Z" stroke="var(--color-umber-strong)" stroke-width="1.6"/>
+          <circle cx="24" cy="24" r="5" fill="var(--color-ochre)"/>
+        </svg>
+        <b>خيّاط البيت</b>
+      </div>
+      <div class="meta">
+        <b id="invNumber">فاتورة #0000</b>
+        <span id="invDate">—</span>
+      </div>
+    </div>
+
+    <div class="invoice-parties">
+      <div class="box"><span>العميل</span><span id="invCustomerName" style="font-weight:700;color:var(--color-text);"></span><span id="invCustomerPhone"></span></div>
+      <div class="box"><span>الخدمة</span><span id="invService" style="font-weight:700;color:var(--color-text);"></span><span id="invFabric"></span></div>
+    </div>
+
+    <table class="invoice-items">
+      <thead><tr><th>البند</th><th class="num">القيمة (ر.س)</th></tr></thead>
+      <tbody id="invItemsBody"></tbody>
+    </table>
+
+    <div class="invoice-totals" id="invTotalsBox"></div>
+
+    <p class="invoice-foot">شكرًا لثقتك بخيّاط البيت. للاستفسار عن الفاتورة، تواصل معنا عبر واتساب. *فاتورة مبسطة — عدّل بيانات المتجر الضريبية قبل الاستخدام الفعلي إن كان المتجر مسجّلًا بضريبة القيمة المضافة.</p>
+
+    <div class="invoice-actions">
+      <button type="button" class="btn btn-ghost" id="invoicePrintBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V3h12v6M6 18h12v4H6z" stroke-linejoin="round"/><path d="M6 14h12v4H6zM4 9h16a1 1 0 0 1 1 1v5h-3M4 9a1 1 0 0 0-1 1v5h3" stroke-linejoin="round"/></svg>
+        طباعة / حفظ PDF
+      </button>
+      <button type="button" class="btn btn-primary" id="invoiceSendBtn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.34 2 11.7c0 2.02.66 3.9 1.8 5.46L2.5 22l5.02-1.3a10.4 10.4 0 0 0 4.48 1c5.52 0 10-4.34 10-9.7C22 6.34 17.52 2 12 2Zm0 17.7c-1.5 0-2.93-.4-4.16-1.1l-.3-.17-2.98.77.8-2.83-.2-.3a7.9 7.9 0 0 1-1.26-4.37c0-4.3 3.66-7.8 8.1-7.8 4.44 0 8.1 3.5 8.1 7.8 0 4.3-3.66 8-8.1 8Z"/></svg>
+        إرسال الفاتورة للعميل عبر واتساب
+      </button>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1141,6 +1261,67 @@
 
   var records = loadRecords();
 
+  /* ---- Financial helpers ---- */
+  function calcTotals(rec){
+    var fabricQty = parseFloat(rec.fabricQty) || 0;
+    var fabricPrice = parseFloat(rec.fabricPrice) || 0;
+    var labor = parseFloat(rec.laborFee) || 0;
+    var discount = parseFloat(rec.discount) || 0;
+    var deposit = parseFloat(rec.deposit) || 0;
+    var fabricCost = fabricQty * fabricPrice;
+    var subtotal = fabricCost + labor;
+    var afterDiscount = Math.max(subtotal - discount, 0);
+    var vat = rec.vatEnabled ? afterDiscount * 0.15 : 0;
+    var grandTotal = afterDiscount + vat;
+    var remaining = Math.max(grandTotal - deposit, 0);
+    return { fabricCost: fabricCost, labor: labor, subtotal: subtotal, discount: discount, vat: vat, grandTotal: grandTotal, deposit: deposit, remaining: remaining };
+  }
+  function money(n){ return toArabicDigits(Math.round(n || 0)); }
+  function getPayStatus(totals){
+    if (totals.grandTotal <= 0) return { key: 'due', label: 'بدون تسعير' };
+    if (totals.remaining <= 0) return { key: 'paid', label: 'مدفوعة بالكامل' };
+    if (totals.deposit > 0) return { key: 'partial', label: 'دفعة جزئية' };
+    return { key: 'due', label: 'لم تُدفع' };
+  }
+  function renderPreviewLines(el, totals, vatEnabled){
+    el.innerHTML = '';
+    function addLine(label, value, cls){
+      var div = document.createElement('div');
+      div.className = 'line' + (cls ? ' ' + cls : '');
+      var span = document.createElement('span'); span.textContent = label;
+      var b = document.createElement('b'); b.textContent = money(value) + ' ر.س';
+      div.appendChild(span); div.appendChild(b);
+      el.appendChild(div);
+    }
+    addLine('تكلفة القماش', totals.fabricCost);
+    addLine('أجرة التفصيل', totals.labor);
+    if (totals.discount > 0) addLine('الخصم', -totals.discount);
+    if (vatEnabled) addLine('ضريبة القيمة المضافة (١٥٪)', totals.vat);
+    addLine('الإجمالي', totals.grandTotal, 'total');
+    if (totals.deposit > 0) addLine('العربون المدفوع', -totals.deposit);
+    addLine('المتبقي على العميل', totals.remaining, 'remaining');
+  }
+  function readFormFinancials(){
+    return {
+      fabricQty: document.getElementById('fQty').value,
+      fabricPrice: document.getElementById('fPrice').value,
+      laborFee: document.getElementById('fLabor').value,
+      discount: document.getElementById('fDiscount').value,
+      deposit: document.getElementById('fDeposit').value,
+      vatEnabled: document.getElementById('fVat').checked
+    };
+  }
+  function updateInvoicePreview(){
+    var obj = readFormFinancials();
+    renderPreviewLines(document.getElementById('invoicePreviewBox'), calcTotals(obj), obj.vatEnabled);
+  }
+  ['fQty','fPrice','fLabor','fDiscount','fDeposit'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', updateInvoicePreview);
+  });
+  var fVatEl = document.getElementById('fVat');
+  if (fVatEl) fVatEl.addEventListener('change', updateInvoicePreview);
+
   function resetForm(){
     staffForm.reset();
     document.getElementById('recordId').value = '';
@@ -1148,6 +1329,7 @@
     document.getElementById('sStatus').value = 'sewing';
     formTitle.textContent = 'تسجيل مقاس جديد — يروح مباشرة لقائمة الخياط';
     staffForm.classList.remove('open');
+    updateInvoicePreview();
   }
 
   function fillForm(rec){
@@ -1171,6 +1353,12 @@
     document.getElementById('fSupplier').value = rec.fabricSupplier || '';
     document.getElementById('fPrice').value = rec.fabricPrice || '';
     document.getElementById('sNotes').value = rec.notes || '';
+    document.getElementById('sService').value = rec.serviceDesc || '';
+    document.getElementById('fLabor').value = rec.laborFee || '0';
+    document.getElementById('fDiscount').value = rec.discount || '0';
+    document.getElementById('fDeposit').value = rec.deposit || '0';
+    document.getElementById('fVat').checked = !!rec.vatEnabled;
+    updateInvoicePreview();
     formTitle.textContent = 'تعديل سجل: ' + (rec.name || '');
     staffForm.classList.add('open');
     staffForm.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
@@ -1215,11 +1403,22 @@
     var fabricLine = (r.fabricType || '—') + (r.fabricColor ? ' · ' + r.fabricColor : '');
     meta.innerHTML = (r.phone || '—') + '<br>' + fabricLine + '<br>' + (r.date || '—');
 
+    var totals = calcTotals(r);
+    var pay = getPayStatus(totals);
+    var money1 = document.createElement('div');
+    money1.className = 'meta';
+    money1.style.marginTop = '-4px';
+    var payBadge = '<span class="badge badge-' + pay.key + '" style="margin-inline-end:6px;">' + pay.label + '</span>';
+    money1.innerHTML = payBadge + 'الإجمالي ' + money(totals.grandTotal) + ' ر.س' + (totals.remaining > 0 ? ' · متبقي ' + money(totals.remaining) : '');
+
     var actions = document.createElement('div');
     actions.className = 'kanban-actions';
 
     var mini = document.createElement('div');
     mini.className = 'mini';
+    var invBtn = document.createElement('button');
+    invBtn.type = 'button'; invBtn.textContent = 'فاتورة';
+    invBtn.addEventListener('click', function(){ openInvoice(r); });
     var editBtn = document.createElement('button');
     editBtn.type = 'button'; editBtn.textContent = 'تعديل';
     editBtn.addEventListener('click', function(){ fillForm(r); });
@@ -1232,7 +1431,7 @@
         renderKanban();
       }
     });
-    mini.appendChild(editBtn); mini.appendChild(delBtn);
+    mini.appendChild(invBtn); mini.appendChild(editBtn); mini.appendChild(delBtn);
     actions.appendChild(mini);
 
     var next = STATUS_NEXT[r.status];
@@ -1252,7 +1451,7 @@
       actions.appendChild(advanceBtn);
     }
 
-    card.appendChild(b); card.appendChild(meta); card.appendChild(actions);
+    card.appendChild(b); card.appendChild(meta); card.appendChild(money1); card.appendChild(actions);
     return card;
   }
 
@@ -1334,11 +1533,22 @@
         fabricQty: document.getElementById('fQty').value,
         fabricSupplier: document.getElementById('fSupplier').value.trim(),
         fabricPrice: document.getElementById('fPrice').value,
-        notes: document.getElementById('sNotes').value.trim()
+        notes: document.getElementById('sNotes').value.trim(),
+        serviceDesc: document.getElementById('sService').value.trim(),
+        laborFee: document.getElementById('fLabor').value,
+        discount: document.getElementById('fDiscount').value,
+        deposit: document.getElementById('fDeposit').value,
+        vatEnabled: document.getElementById('fVat').checked
       };
       var idx = records.findIndex(function(x){ return x.id === id; });
       var isNew = idx === -1;
-      if (idx > -1) records[idx] = rec; else records.unshift(rec);
+      if (idx > -1) {
+        rec.invoiceNo = records[idx].invoiceNo;
+        rec.invoiceDate = records[idx].invoiceDate;
+        records[idx] = rec;
+      } else {
+        records.unshift(rec);
+      }
       saveRecords(records);
       renderKanban();
       resetForm();
@@ -1357,13 +1567,20 @@
   if (searchInput) searchInput.addEventListener('input', renderKanban);
 
   if (exportBtn) exportBtn.addEventListener('click', function(){
-    var cols = ['name','phone','date','status','length','shoulder','chest','waist','sleeve','arm','neck','collar','sleeveType','fabricType','fabricColor','fabricQty','fabricSupplier','fabricPrice','notes'];
-    var header = ['الاسم','الجوال','التاريخ','الحالة','الطول','الكتف','الصدر','الخصر','الكم','الزند','الياقة','نوع الياقة','نوع الكم','نوع القماش','اللون','الكمية(م)','المورد','سعر المتر','ملاحظات'];
+    var cols = ['name','phone','date','status','length','shoulder','chest','waist','sleeve','arm','neck','collar','sleeveType','fabricType','fabricColor','fabricQty','fabricSupplier','fabricPrice','serviceDesc','laborFee','discount','deposit','notes'];
+    var header = ['الاسم','الجوال','التاريخ','الحالة','الطول','الكتف','الصدر','الخصر','الكم','الزند','الياقة','نوع الياقة','نوع الكم','نوع القماش','اللون','الكمية(م)','المورد','سعر المتر','وصف الخدمة','أجرة التفصيل','الخصم','العربون','ملاحظات'];
+    header = header.concat(['رقم الفاتورة','الإجمالي','المتبقي']);
     var rows = [header.join(',')].concat(records.map(function(r){
-      return cols.map(function(c){
+      var totals = calcTotals(r);
+      var base = cols.map(function(c){
         var v = (r[c] || '').toString().replace(/"/g, '""');
         return '"' + v + '"';
-      }).join(',');
+      });
+      return base.concat([
+        '"' + (r.invoiceNo || '—') + '"',
+        '"' + Math.round(totals.grandTotal) + '"',
+        '"' + Math.round(totals.remaining) + '"'
+      ]).join(',');
     }));
     var csv = '﻿' + rows.join('\n');
     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
@@ -1372,6 +1589,118 @@
     a.href = url; a.download = 'سجلات-خياط-البيت.csv';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
+  });
+
+  /* ============================================================
+     Invoicing: generate + send to the customer over WhatsApp
+     ============================================================ */
+  var invoiceModal = document.getElementById('invoiceModal');
+  var activeInvoiceRecord = null;
+
+  function toWhatsAppNumber(phone){
+    var digits = (phone || '').replace(/[^0-9]/g, '');
+    if (digits.indexOf('966') === 0) return digits;
+    if (digits.indexOf('0') === 0) return '966' + digits.slice(1);
+    if (digits.length === 9) return '966' + digits;
+    return digits;
+  }
+
+  function nextInvoiceNumber(){
+    var n = 1000;
+    try { n = parseInt(localStorage.getItem('khayyatAlbeit.invoiceCounter'), 10) || 1000; } catch(e){}
+    n += 1;
+    try { localStorage.setItem('khayyatAlbeit.invoiceCounter', String(n)); } catch(e){}
+    return n;
+  }
+
+  function openInvoice(rec){
+    if (!rec.invoiceNo) {
+      rec.invoiceNo = nextInvoiceNumber();
+      rec.invoiceDate = new Date().toISOString().slice(0, 10);
+      saveRecords(records);
+      renderKanban();
+    }
+    activeInvoiceRecord = rec;
+    var totals = calcTotals(rec);
+
+    document.getElementById('invNumber').textContent = 'فاتورة #' + toArabicDigits(rec.invoiceNo);
+    document.getElementById('invDate').textContent = 'تاريخ الإصدار: ' + (rec.invoiceDate || rec.date || '—');
+    document.getElementById('invCustomerName').textContent = rec.name || '—';
+    document.getElementById('invCustomerPhone').textContent = rec.phone || '—';
+    document.getElementById('invService').textContent = rec.serviceDesc || 'تفصيل ثوب رجالي حسب المقاس';
+    document.getElementById('invFabric').textContent = (rec.fabricType || '—') + (rec.fabricColor ? ' · ' + rec.fabricColor : '');
+
+    var itemsBody = document.getElementById('invItemsBody');
+    itemsBody.innerHTML = '';
+    function addItem(label, value){
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td'); td1.textContent = label;
+      var td2 = document.createElement('td'); td2.className = 'num'; td2.textContent = money(value);
+      tr.appendChild(td1); tr.appendChild(td2);
+      itemsBody.appendChild(tr);
+    }
+    var fabricQty = parseFloat(rec.fabricQty) || 0;
+    var fabricPrice = parseFloat(rec.fabricPrice) || 0;
+    addItem('قماش (' + (rec.fabricType || '—') + ' × ' + toArabicDigits(fabricQty) + 'م × ' + toArabicDigits(fabricPrice) + ' ر.س)', totals.fabricCost);
+    addItem('أجرة التفصيل', totals.labor);
+
+    var totalsBox = document.getElementById('invTotalsBox');
+    totalsBox.innerHTML = '';
+    function addTotalLine(label, value, cls){
+      var div = document.createElement('div');
+      div.className = 'line' + (cls ? ' ' + cls : '');
+      var span = document.createElement('span'); span.textContent = label;
+      var b = document.createElement('b'); b.textContent = money(value) + ' ر.س';
+      div.appendChild(span); div.appendChild(b);
+      totalsBox.appendChild(div);
+    }
+    addTotalLine('المجموع الفرعي', totals.subtotal);
+    if (totals.discount > 0) addTotalLine('الخصم', -totals.discount);
+    if (rec.vatEnabled) addTotalLine('ضريبة القيمة المضافة (١٥٪)', totals.vat);
+    addTotalLine('الإجمالي النهائي', totals.grandTotal, 'grand');
+    if (totals.deposit > 0) {
+      addTotalLine('العربون المدفوع', -totals.deposit);
+      addTotalLine('المتبقي', totals.remaining);
+    }
+
+    invoiceModal.classList.add('open');
+  }
+
+  function closeInvoice(){
+    invoiceModal.classList.remove('open');
+    activeInvoiceRecord = null;
+  }
+
+  var invoiceCloseBtn = document.getElementById('invoiceCloseBtn');
+  var invoiceBackdrop = document.getElementById('invoiceBackdrop');
+  var invoicePrintBtn = document.getElementById('invoicePrintBtn');
+  var invoiceSendBtn = document.getElementById('invoiceSendBtn');
+  if (invoiceCloseBtn) invoiceCloseBtn.addEventListener('click', closeInvoice);
+  if (invoiceBackdrop) invoiceBackdrop.addEventListener('click', closeInvoice);
+  if (invoicePrintBtn) invoicePrintBtn.addEventListener('click', function(){ window.print(); });
+  if (invoiceSendBtn) invoiceSendBtn.addEventListener('click', function(){
+    if (!activeInvoiceRecord) return;
+    var rec = activeInvoiceRecord;
+    var totals = calcTotals(rec);
+    var lines = [
+      'فاتورة #' + rec.invoiceNo + ' - خيّاط البيت',
+      'العميل: ' + rec.name,
+      'الخدمة: ' + (rec.serviceDesc || 'تفصيل ثوب رجالي حسب المقاس'),
+      'تكلفة القماش: ' + Math.round(totals.fabricCost) + ' ر.س',
+      'أجرة التفصيل: ' + Math.round(totals.labor) + ' ر.س'
+    ];
+    if (totals.discount > 0) lines.push('الخصم: ' + Math.round(totals.discount) + ' ر.س');
+    if (rec.vatEnabled) lines.push('ضريبة القيمة المضافة (15%): ' + Math.round(totals.vat) + ' ر.س');
+    lines.push('الإجمالي النهائي: ' + Math.round(totals.grandTotal) + ' ر.س');
+    if (totals.deposit > 0) {
+      lines.push('العربون المدفوع: ' + Math.round(totals.deposit) + ' ر.س');
+      lines.push('المتبقي: ' + Math.round(totals.remaining) + ' ر.س');
+    }
+    lines.push('شكرًا لثقتك بخيّاط البيت.');
+    var target = toWhatsAppNumber(rec.phone);
+    if (!target) { window.alert('رقم جوال العميل غير صالح لإرسال الفاتورة عبر واتساب.'); return; }
+    window.open('https://wa.me/' + target + '?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+    showToast('فُتح واتساب لإرسال الفاتورة إلى ' + rec.name);
   });
 
   // ---- Lock / unlock ----
