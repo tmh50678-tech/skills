@@ -352,6 +352,12 @@
   }
   .staff-notice svg{width:18px;height:18px;flex:none;color:var(--color-clay-strong);margin-top:1px;}
 
+  .staff-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:26px;}
+  .stat-tile{background:var(--color-surface-raised);border:1px solid var(--color-border);padding:16px 18px;}
+  .stat-tile b{display:block;font-family:var(--font-display);font-size:1.9rem;color:var(--color-clay-strong);font-variant-numeric:tabular-nums;}
+  .stat-tile span{font-size:0.8rem;color:var(--color-text-soft);}
+  .stat-tile.highlight{border-color:var(--color-clay);background:color-mix(in srgb, var(--color-clay) 6%, var(--color-surface-raised));}
+
   .staff-toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px;}
   .staff-search{display:flex;gap:10px;flex-wrap:wrap;flex:1;}
   .staff-search input,.staff-search select{
@@ -373,23 +379,44 @@
   .staff-form-actions .btn-text{background:none;border:none;color:var(--color-text-soft);font-weight:600;font-size:0.9rem;padding:12px 6px;}
   .staff-form-actions .btn-text:hover{color:var(--color-clay-strong);}
 
-  .staff-table-wrap{overflow-x:auto;border:1px solid var(--color-border);background:var(--color-surface-raised);}
-  table.staff-table{width:100%;border-collapse:collapse;font-size:0.88rem;}
-  .staff-table th,.staff-table td{padding:13px 14px;text-align:right;border-bottom:1px solid var(--color-border);white-space:nowrap;}
-  .staff-table thead th{background:var(--color-surface);font-size:0.76rem;color:var(--color-text-soft);font-weight:700;}
-  .staff-table tbody tr:last-child td{border-bottom:none;}
-  .staff-table tbody tr:hover{background:color-mix(in srgb, var(--color-clay) 5%, transparent);}
   .badge{display:inline-flex;padding:4px 11px;border-radius:100px;font-size:0.74rem;font-weight:700;white-space:nowrap;}
   .badge-measuring{background:#e7e0d3;color:#5b4a37;}
   .badge-sewing{background:#f1d9a8;color:#7a5416;}
   .badge-ready{background:#cfe3de;color:#215449;}
   .badge-done{background:#d7e6cb;color:#3a5a29;}
   .badge-example{background:#e9d9d0;color:#7a3f24;}
-  .row-actions{display:flex;gap:8px;}
-  .row-actions button{background:none;border:1px solid var(--color-border-strong);border-radius:4px;padding:6px 11px;font-size:0.78rem;color:var(--color-text);}
-  .row-actions button:hover{border-color:var(--color-clay);color:var(--color-clay-strong);}
-  .row-actions button.danger:hover{border-color:#a33;color:#a33;}
-  .staff-empty{padding:60px 20px;text-align:center;color:var(--color-text-soft);font-size:0.92rem;}
+
+  /* ---- Kanban production board ---- */
+  .kanban{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:start;}
+  .kanban-col{background:var(--color-surface);border:1px solid var(--color-border);display:flex;flex-direction:column;}
+  .kanban-col.is-tailor{border-color:var(--color-clay);box-shadow:0 0 0 1px var(--color-clay) inset;}
+  .kanban-col-head{padding:14px 16px;border-bottom:1px solid var(--color-border);}
+  .kanban-col.is-tailor .kanban-col-head{background:color-mix(in srgb, var(--color-clay) 10%, transparent);}
+  .kanban-col-head .row{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+  .kanban-col-head h4{font-size:0.86rem;font-weight:700;}
+  .kanban-col-head .tag{font-size:0.7rem;color:var(--color-clay-strong);font-weight:700;letter-spacing:0.03em;}
+  .kanban-count{background:var(--color-surface-raised);border:1px solid var(--color-border-strong);border-radius:100px;padding:2px 10px;font-size:0.75rem;font-variant-numeric:tabular-nums;flex:none;}
+  .kanban-body{padding:10px;display:flex;flex-direction:column;gap:10px;min-height:90px;}
+  .kanban-card{background:var(--color-surface-raised);border:1px solid var(--color-border);padding:12px 13px;font-size:0.85rem;}
+  .kanban-card b{display:block;font-size:0.92rem;margin-bottom:2px;}
+  .kanban-card .meta{color:var(--color-text-soft);font-size:0.76rem;margin-bottom:10px;line-height:1.5;}
+  .kanban-card .kanban-actions{display:flex;justify-content:space-between;align-items:center;gap:6px;border-top:1px dashed var(--color-border-strong);padding-top:9px;}
+  .kanban-card .kanban-actions .mini{display:flex;gap:6px;}
+  .kanban-card .kanban-actions button{font-size:0.74rem;padding:5px 9px;border:1px solid var(--color-border-strong);background:none;border-radius:4px;color:var(--color-text);}
+  .kanban-card .kanban-actions button:hover{border-color:var(--color-clay);color:var(--color-clay-strong);}
+  .kanban-card .kanban-actions button.danger:hover{border-color:#a33;color:#a33;}
+  .kanban-card .advance{color:#fff8ee;background:var(--color-clay);border-color:var(--color-clay);font-weight:700;}
+  .kanban-card .advance:hover{background:var(--color-clay-strong);color:#fff8ee;}
+  .kanban-empty{padding:26px 12px;text-align:center;color:var(--color-text-soft);font-size:0.8rem;}
+
+  .staff-toast{
+    position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);
+    background:var(--color-umber-strong);color:#fff8ee;padding:13px 22px;border-radius:4px;
+    font-size:0.88rem;box-shadow:var(--shadow-lift);display:flex;align-items:center;gap:10px;
+    opacity:0;pointer-events:none;transition:transform .3s ease, opacity .3s ease;z-index:120;
+  }
+  .staff-toast svg{width:18px;height:18px;flex:none;color:var(--color-band-accent);}
+  .staff-toast.show{opacity:1;transform:translate(-50%,0);}
 
   /* ============ Mobile ============ */
   @media (max-width:980px){
@@ -406,6 +433,8 @@
     .booking-grid{grid-template-columns:1fr;gap:40px;}
     .footer-grid{grid-template-columns:1fr 1fr;}
     .staff-form .form-grid{grid-template-columns:1fr 1fr;}
+    .staff-stats{grid-template-columns:1fr 1fr;}
+    .kanban{grid-template-columns:1fr 1fr;}
   }
   @media (max-width:600px){
     .utility-bar .wrap{justify-content:center;text-align:center;}
@@ -418,6 +447,8 @@
     section{padding-block:64px;}
     .stat-row{gap:24px;}
     .staff-form .form-grid{grid-template-columns:1fr;}
+    .staff-stats{grid-template-columns:1fr 1fr;}
+    .kanban{grid-template-columns:1fr;}
     .fab-whatsapp{width:50px;height:50px;bottom:16px;left:16px;}
   }
 </style>
@@ -850,23 +881,18 @@
   <div id="staffDash" class="staff-dash" hidden>
     <div class="staff-notice">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01" stroke-linecap="round"/></svg>
-      <span>بيانات العملاء تُحفظ محليًا داخل متصفح هذا الجهاز فقط، ولا تُشارك تلقائيًا مع أجهزة الموظفين الآخرين. لاستخدام حقيقي متعدد الأجهزة يحتاج المشروع قاعدة بيانات فعلية بدل هذا التخزين المحلي.</span>
+      <span>بمجرد ما تحفظ مقاس عميل، ينتقل تلقائيًا لعمود "قائمة الخياط" أدناه — ما يحتاج نقل يدوي. بيانات العملاء تُحفظ محليًا داخل متصفح هذا الجهاز فقط؛ لاستخدام حقيقي يشوفه كل الموظفين من أي جهاز، يحتاج المشروع قاعدة بيانات فعلية بدل هذا التخزين المحلي.</span>
     </div>
+
+    <div class="staff-stats" id="staffStats"></div>
 
     <div class="staff-toolbar">
       <div class="staff-search">
         <input type="text" id="staffSearch" placeholder="ابحث بالاسم أو رقم الجوال…">
-        <select id="staffStatusFilter">
-          <option value="">كل الحالات</option>
-          <option value="measuring">قيد القياس</option>
-          <option value="sewing">قيد الحياكة</option>
-          <option value="ready">جاهز للتسليم</option>
-          <option value="done">تم التسليم</option>
-        </select>
       </div>
       <div style="display:flex;gap:10px;">
         <button class="btn btn-ghost" id="staffExport">تصدير CSV</button>
-        <button class="btn btn-primary" id="staffAddNew">+ إضافة سجل جديد</button>
+        <button class="btn btn-primary" id="staffAddNew">+ تسجيل مقاس جديد</button>
       </div>
     </div>
 
@@ -880,8 +906,8 @@
         <div class="field"><label for="sDate">تاريخ القياس</label><input id="sDate" type="date"></div>
         <div class="field"><label for="sStatus">حالة الطلب</label>
           <select id="sStatus">
-            <option value="measuring">قيد القياس</option>
-            <option value="sewing">قيد الحياكة</option>
+            <option value="measuring">قيد القياس (لسا ما اتقاست)</option>
+            <option value="sewing" selected>قيد الحياكة (جاهزة للخياط)</option>
             <option value="ready">جاهز للتسليم</option>
             <option value="done">تم التسليم</option>
           </select>
@@ -922,18 +948,13 @@
       </div>
     </form>
 
-    <div class="staff-table-wrap">
-      <table class="staff-table">
-        <thead>
-          <tr>
-            <th>الاسم</th><th>الجوال</th><th>الحالة</th><th>تاريخ القياس</th><th>القماش</th><th>إجراءات</th>
-          </tr>
-        </thead>
-        <tbody id="staffTableBody"></tbody>
-      </table>
-      <div class="staff-empty" id="staffEmpty" hidden>لا توجد سجلات مطابقة. اضغط "إضافة سجل جديد" للبدء.</div>
-    </div>
+    <div class="kanban" id="kanbanBoard"></div>
   </div>
+</div>
+
+<div class="staff-toast" id="staffToast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span id="staffToastText"></span>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1077,15 +1098,27 @@
   var staffForm = document.getElementById('staffForm');
   var addNewBtn = document.getElementById('staffAddNew');
   var cancelBtn = document.getElementById('staffCancel');
-  var tableBody = document.getElementById('staffTableBody');
-  var emptyState = document.getElementById('staffEmpty');
+  var kanbanBoard = document.getElementById('kanbanBoard');
+  var statsRow = document.getElementById('staffStats');
   var searchInput = document.getElementById('staffSearch');
-  var statusFilter = document.getElementById('staffStatusFilter');
   var exportBtn = document.getElementById('staffExport');
   var formTitle = document.getElementById('staffFormTitle');
+  var toastEl = document.getElementById('staffToast');
+  var toastTextEl = document.getElementById('staffToastText');
+  var toastTimer = null;
 
+  var STATUS_ORDER = ['measuring', 'sewing', 'ready', 'done'];
   var STATUS_LABEL = { measuring: 'قيد القياس', sewing: 'قيد الحياكة', ready: 'جاهز للتسليم', done: 'تم التسليم' };
   var STATUS_CLASS = { measuring: 'badge-measuring', sewing: 'badge-sewing', ready: 'badge-ready', done: 'badge-done' };
+  var STATUS_NEXT = { measuring: 'sewing', sewing: 'ready', ready: 'done' };
+  var STATUS_ADVANCE_LABEL = { measuring: 'إرسال للخياط ←', sewing: 'انتهت الحياكة ←', ready: 'تم التسليم ←' };
+
+  function showToast(text){
+    toastTextEl.textContent = text;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 3200);
+  }
 
   function loadRecords(){
     try {
@@ -1095,7 +1128,7 @@
     // سجل توضيحي أول استخدام — يوضح شكل الحقول ويمكن حذفه
     return [{
       id: 'example-1', example: true, name: 'مثال: تركي العتيبي', phone: '0501234567',
-      date: new Date().toISOString().slice(0,10), status: 'measuring',
+      date: new Date().toISOString().slice(0,10), status: 'sewing',
       length: '145', shoulder: '48', chest: '112', waist: '108', sleeve: '62', arm: '32', neck: '40',
       collar: 'كلاسيك', sleeveType: 'سادة',
       fabricType: 'تيل قطني', fabricColor: 'أبيض عاجي', fabricQty: '4', fabricSupplier: 'مورد الرياض - دفعة ٧', fabricPrice: '45',
@@ -1112,7 +1145,8 @@
     staffForm.reset();
     document.getElementById('recordId').value = '';
     document.getElementById('sDate').value = new Date().toISOString().slice(0,10);
-    formTitle.textContent = 'سجل عميل جديد';
+    document.getElementById('sStatus').value = 'sewing';
+    formTitle.textContent = 'تسجيل مقاس جديد — يروح مباشرة لقائمة الخياط';
     staffForm.classList.remove('open');
   }
 
@@ -1142,63 +1176,137 @@
     staffForm.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   }
 
-  function renderTable(){
+  function renderStats(){
+    var counts = { measuring: 0, sewing: 0, ready: 0, done: 0 };
+    records.forEach(function(r){ if (counts[r.status] !== undefined) counts[r.status]++; });
+    var tiles = [
+      { key: 'measuring', label: 'قيد القياس' },
+      { key: 'sewing', label: 'في قائمة الخياط', highlight: true },
+      { key: 'ready', label: 'جاهز للتسليم' },
+      { key: 'done', label: 'تم تسليمه' }
+    ];
+    statsRow.innerHTML = '';
+    tiles.forEach(function(t){
+      var tile = document.createElement('div');
+      tile.className = 'stat-tile' + (t.highlight ? ' highlight' : '');
+      var b = document.createElement('b'); b.textContent = toArabicDigits(counts[t.key]);
+      var span = document.createElement('span'); span.textContent = t.label;
+      tile.appendChild(b); tile.appendChild(span);
+      statsRow.appendChild(tile);
+    });
+  }
+
+  function makeCard(r){
+    var card = document.createElement('div');
+    card.className = 'kanban-card';
+
+    var b = document.createElement('b');
+    b.textContent = r.name || '(بدون اسم)';
+    if (r.example) {
+      var tag = document.createElement('span');
+      tag.className = 'badge badge-example';
+      tag.style.marginRight = '6px';
+      tag.textContent = 'مثال';
+      b.appendChild(tag);
+    }
+
+    var meta = document.createElement('div');
+    meta.className = 'meta';
+    var fabricLine = (r.fabricType || '—') + (r.fabricColor ? ' · ' + r.fabricColor : '');
+    meta.innerHTML = (r.phone || '—') + '<br>' + fabricLine + '<br>' + (r.date || '—');
+
+    var actions = document.createElement('div');
+    actions.className = 'kanban-actions';
+
+    var mini = document.createElement('div');
+    mini.className = 'mini';
+    var editBtn = document.createElement('button');
+    editBtn.type = 'button'; editBtn.textContent = 'تعديل';
+    editBtn.addEventListener('click', function(){ fillForm(r); });
+    var delBtn = document.createElement('button');
+    delBtn.type = 'button'; delBtn.textContent = 'حذف'; delBtn.className = 'danger';
+    delBtn.addEventListener('click', function(){
+      if (window.confirm('تأكيد حذف سجل "' + r.name + '"؟')) {
+        records = records.filter(function(x){ return x.id !== r.id; });
+        saveRecords(records);
+        renderKanban();
+      }
+    });
+    mini.appendChild(editBtn); mini.appendChild(delBtn);
+    actions.appendChild(mini);
+
+    var next = STATUS_NEXT[r.status];
+    if (next) {
+      var advanceBtn = document.createElement('button');
+      advanceBtn.type = 'button';
+      advanceBtn.className = 'advance';
+      advanceBtn.textContent = STATUS_ADVANCE_LABEL[r.status];
+      advanceBtn.addEventListener('click', function(){
+        r.status = next;
+        saveRecords(records);
+        renderKanban();
+        if (next === 'sewing') showToast('تم إرسال طلب "' + r.name + '" إلى قائمة الخياط');
+        else if (next === 'ready') showToast('طلب "' + r.name + '" صار جاهز للتسليم');
+        else if (next === 'done') showToast('تم تسليم طلب "' + r.name + '"');
+      });
+      actions.appendChild(advanceBtn);
+    }
+
+    card.appendChild(b); card.appendChild(meta); card.appendChild(actions);
+    return card;
+  }
+
+  function renderKanban(){
     var q = (searchInput.value || '').trim().toLowerCase();
-    var statusQ = statusFilter.value;
     var filtered = records.filter(function(r){
-      var matchesQ = !q || (r.name || '').toLowerCase().indexOf(q) > -1 || (r.phone || '').indexOf(q) > -1;
-      var matchesStatus = !statusQ || r.status === statusQ;
-      return matchesQ && matchesStatus;
+      return !q || (r.name || '').toLowerCase().indexOf(q) > -1 || (r.phone || '').indexOf(q) > -1;
     });
 
-    tableBody.innerHTML = '';
-    emptyState.hidden = filtered.length > 0;
+    renderStats();
+    kanbanBoard.innerHTML = '';
 
-    filtered.forEach(function(r){
-      var tr = document.createElement('tr');
+    var COLS = [
+      { key: 'measuring', label: 'قيد القياس', tag: null },
+      { key: 'sewing', label: 'قيد الحياكة', tag: 'قائمة الخياط' },
+      { key: 'ready', label: 'جاهز للتسليم', tag: null },
+      { key: 'done', label: 'تم التسليم', tag: null }
+    ];
 
-      var tdName = document.createElement('td');
-      tdName.textContent = r.name + (r.example ? '' : '');
-      if (r.example) {
-        var tag = document.createElement('span');
-        tag.className = 'badge badge-example';
-        tag.style.marginRight = '8px';
-        tag.textContent = 'مثال';
-        tdName.appendChild(tag);
+    COLS.forEach(function(col){
+      var items = filtered.filter(function(r){ return r.status === col.key; });
+      // الأقدم أولًا في قائمة الخياط، حتى يشتغل الخياط بالترتيب
+      items.sort(function(a, b){ return (a.date || '').localeCompare(b.date || ''); });
+
+      var colEl = document.createElement('div');
+      colEl.className = 'kanban-col' + (col.key === 'sewing' ? ' is-tailor' : '');
+
+      var head = document.createElement('div');
+      head.className = 'kanban-col-head';
+      var row = document.createElement('div');
+      row.className = 'row';
+      var h4 = document.createElement('h4'); h4.textContent = col.label;
+      var count = document.createElement('span'); count.className = 'kanban-count'; count.textContent = toArabicDigits(items.length);
+      row.appendChild(h4); row.appendChild(count);
+      head.appendChild(row);
+      if (col.tag) {
+        var tagEl = document.createElement('div'); tagEl.className = 'tag'; tagEl.textContent = col.tag;
+        head.appendChild(tagEl);
       }
+      colEl.appendChild(head);
 
-      var tdPhone = document.createElement('td'); tdPhone.textContent = r.phone || '—';
-      var tdStatus = document.createElement('td');
-      var badge = document.createElement('span');
-      badge.className = 'badge ' + (STATUS_CLASS[r.status] || 'badge-measuring');
-      badge.textContent = STATUS_LABEL[r.status] || r.status;
-      tdStatus.appendChild(badge);
+      var body = document.createElement('div');
+      body.className = 'kanban-body';
+      if (items.length) {
+        items.forEach(function(r){ body.appendChild(makeCard(r)); });
+      } else {
+        var empty = document.createElement('div');
+        empty.className = 'kanban-empty';
+        empty.textContent = 'لا يوجد';
+        body.appendChild(empty);
+      }
+      colEl.appendChild(body);
 
-      var tdDate = document.createElement('td'); tdDate.textContent = r.date || '—';
-      var tdFabric = document.createElement('td'); tdFabric.textContent = (r.fabricType || '—') + (r.fabricColor ? ' · ' + r.fabricColor : '');
-
-      var tdActions = document.createElement('td');
-      var actionsWrap = document.createElement('div');
-      actionsWrap.className = 'row-actions';
-      var editBtn = document.createElement('button');
-      editBtn.type = 'button'; editBtn.textContent = 'تعديل';
-      editBtn.addEventListener('click', function(){ fillForm(r); });
-      var delBtn = document.createElement('button');
-      delBtn.type = 'button'; delBtn.textContent = 'حذف'; delBtn.className = 'danger';
-      delBtn.addEventListener('click', function(){
-        if (window.confirm('تأكيد حذف سجل "' + r.name + '"؟')) {
-          records = records.filter(function(x){ return x.id !== r.id; });
-          saveRecords(records);
-          renderTable();
-        }
-      });
-      actionsWrap.appendChild(editBtn);
-      actionsWrap.appendChild(delBtn);
-      tdActions.appendChild(actionsWrap);
-
-      tr.appendChild(tdName); tr.appendChild(tdPhone); tr.appendChild(tdStatus);
-      tr.appendChild(tdDate); tr.appendChild(tdFabric); tr.appendChild(tdActions);
-      tableBody.appendChild(tr);
+      kanbanBoard.appendChild(colEl);
     });
   }
 
@@ -1229,10 +1337,14 @@
         notes: document.getElementById('sNotes').value.trim()
       };
       var idx = records.findIndex(function(x){ return x.id === id; });
+      var isNew = idx === -1;
       if (idx > -1) records[idx] = rec; else records.unshift(rec);
       saveRecords(records);
-      renderTable();
+      renderKanban();
       resetForm();
+      if (isNew && rec.status === 'sewing') showToast('تم تسجيل مقاس "' + rec.name + '" وإرساله مباشرة لقائمة الخياط');
+      else if (isNew) showToast('تم حفظ سجل "' + rec.name + '"');
+      else showToast('تم تحديث سجل "' + rec.name + '"');
     });
   }
 
@@ -1242,8 +1354,7 @@
     staffForm.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   });
   if (cancelBtn) cancelBtn.addEventListener('click', resetForm);
-  if (searchInput) searchInput.addEventListener('input', renderTable);
-  if (statusFilter) statusFilter.addEventListener('change', renderTable);
+  if (searchInput) searchInput.addEventListener('input', renderKanban);
 
   if (exportBtn) exportBtn.addEventListener('click', function(){
     var cols = ['name','phone','date','status','length','shoulder','chest','waist','sleeve','arm','neck','collar','sleeveType','fabricType','fabricColor','fabricQty','fabricSupplier','fabricPrice','notes'];
@@ -1288,7 +1399,7 @@
     dash.hidden = false;
     logoutBtn.hidden = false;
     resetForm();
-    renderTable();
+    renderKanban();
   }
 
   if (openLink) openLink.addEventListener('click', function(e){ e.preventDefault(); openStaffPanel(); });
