@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" data-theme="light">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,49 +44,6 @@
     color-scheme: light;
   }
 
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --color-bg:#171009;
-      --color-surface:#1d150c;
-      --color-surface-raised:#241a10;
-      --color-text:#f1e4d0;
-      --color-text-soft:#c9ab86;
-      --color-clay:#d6863f;
-      --color-clay-strong:#e79c55;
-      --color-umber:#b79b7c;
-      --color-umber-strong:#dcc5a8;
-      --color-ochre:#c9a468;
-      --color-border:rgba(241,228,208,0.14);
-      --color-border-strong:rgba(241,228,208,0.26);
-      --color-band-bg:#2a1e14;
-      --color-band-text:#f3e7d3;
-      --color-band-accent:#e0b06c;
-      --shadow-soft:0 24px 60px -32px rgba(0,0,0,0.7);
-      --shadow-lift:0 30px 70px -28px rgba(0,0,0,0.75);
-      color-scheme: dark;
-    }
-  }
-  :root[data-theme="dark"]{
-    --color-bg:#171009;
-    --color-surface:#1d150c;
-    --color-surface-raised:#241a10;
-    --color-text:#f1e4d0;
-    --color-text-soft:#c9ab86;
-    --color-clay:#d6863f;
-    --color-clay-strong:#e79c55;
-    --color-umber:#b79b7c;
-    --color-umber-strong:#dcc5a8;
-    --color-ochre:#c9a468;
-    --color-border:rgba(241,228,208,0.14);
-    --color-border-strong:rgba(241,228,208,0.26);
-    --color-band-bg:#2a1e14;
-    --color-band-text:#f3e7d3;
-    --color-band-accent:#e0b06c;
-    --shadow-soft:0 24px 60px -32px rgba(0,0,0,0.7);
-    --shadow-lift:0 30px 70px -28px rgba(0,0,0,0.75);
-    color-scheme: dark;
-  }
-
   /* ============ Reset ============ */
   *,*::before,*::after{box-sizing:border-box;}
   [hidden]{display:none !important;}
@@ -118,7 +75,6 @@
     font-weight:700;
   }
   .eyebrow::before{content:"";width:22px;height:2px;background:var(--color-clay);display:inline-block;}
-  :root:not([data-theme="light"]) .eyebrow,[data-theme="dark"] .eyebrow{color:var(--color-clay);}
 
   /* ============ Scroll progress ============ */
   #scrollProgress{position:fixed;top:0;left:0;height:3px;width:0%;background:var(--color-clay);z-index:200;}
@@ -193,13 +149,6 @@
   }
   .icon-btn:hover{border-color:var(--color-clay);color:var(--color-clay-strong);}
   .icon-btn svg{width:19px;height:19px;}
-  .theme-toggle .sun{display:none;}
-  :root[data-theme="dark"] .theme-toggle .sun{display:block;}
-  :root[data-theme="dark"] .theme-toggle .moon{display:none;}
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]) .theme-toggle .sun{display:block;}
-    :root:not([data-theme="light"]) .theme-toggle .moon{display:none;}
-  }
   .menu-toggle{display:none;}
   .menu-toggle svg{width:20px;height:20px;}
 
@@ -218,7 +167,6 @@
     display:block;font-family:var(--font-display);font-size:2.1rem;color:var(--color-clay-strong);
     font-variant-numeric:tabular-nums;
   }
-  :root:not([data-theme="light"]) .stat b,[data-theme="dark"] .stat b{color:var(--color-clay);}
   .stat span{font-size:0.82rem;color:var(--color-text-soft);}
 
   .hero-visual{position:relative;aspect-ratio:1/1.05;}
@@ -250,7 +198,6 @@
   .features{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--color-border);border:1px solid var(--color-border);}
   .feature{background:var(--color-surface);padding:34px 28px;}
   .feature .icon{width:44px;height:44px;color:var(--color-clay-strong);margin-bottom:22px;}
-  :root:not([data-theme="light"]) .feature .icon,[data-theme="dark"] .feature .icon{color:var(--color-clay);}
   .feature h3{font-size:var(--fs-h3);margin-bottom:10px;}
   .feature p{color:var(--color-text-soft);font-size:0.95rem;}
 
@@ -275,7 +222,6 @@
   .service-card p{color:var(--color-text-soft);font-size:0.94rem;margin-bottom:18px;}
   .service-price{display:flex;justify-content:space-between;align-items:center;border-top:1px dashed var(--color-border-strong);padding-top:16px;}
   .service-price b{font-family:var(--font-display);color:var(--color-umber-strong);font-size:1.05rem;}
-  :root:not([data-theme="light"]) .service-price b,[data-theme="dark"] .service-price b{color:var(--color-ochre);}
   .service-price a{font-size:0.85rem;font-weight:700;color:var(--color-clay-strong);}
 
   /* ============ Process ============ */
@@ -289,7 +235,6 @@
     font-family:var(--font-display);font-size:1.4rem;color:var(--color-clay-strong);margin-bottom:22px;
     position:relative;z-index:1;
   }
-  :root:not([data-theme="light"]) .process-step .dot,[data-theme="dark"] .process-step .dot{color:var(--color-clay);}
   .process-step h3{font-size:1.05rem;margin-bottom:8px;}
   .process-step p{color:var(--color-text-soft);font-size:0.92rem;}
 
@@ -509,10 +454,6 @@
       <li><a href="#contact">تواصل معنا</a></li>
     </ul>
     <div class="nav-cta">
-      <button class="icon-btn theme-toggle" id="themeToggle" aria-label="تبديل المظهر الداكن/الفاتح">
-        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7" stroke-linecap="round"/></svg>
-        <svg class="moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 14.7A8.5 8.5 0 0 1 9.3 3.5a.6.6 0 0 0-.7-.8A9.7 9.7 0 1 0 21.3 15.4a.6.6 0 0 0-.8-.7Z"/></svg>
-      </button>
       <a href="#booking" class="btn btn-primary">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 6v12M6 12h12" stroke-linecap="round"/></svg>
         احجز زيارة
@@ -1006,24 +947,6 @@
   var STAFF_PIN = "1234"; // غيّر الرقم السري قبل الاستخدام الفعلي
 
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ---- Theme toggle ----
-  var themeToggle = document.getElementById('themeToggle');
-  var storedTheme = null;
-  try { storedTheme = localStorage.getItem('khayyat-theme'); } catch(e){}
-  if (storedTheme === 'light' || storedTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', storedTheme);
-  }
-  if (themeToggle) {
-    themeToggle.addEventListener('click', function(){
-      var current = document.documentElement.getAttribute('data-theme');
-      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var effectiveDark = current ? current === 'dark' : prefersDark;
-      var next = effectiveDark ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      try { localStorage.setItem('khayyat-theme', next); } catch(e){}
-    });
-  }
 
   // ---- Scroll progress bar ----
   var progressBar = document.getElementById('scrollProgress');
